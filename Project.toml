@@ -1,3 +1,12 @@
+name = "MakiePublication"
+uuid = "dde8697e-0d61-460d-88dd-856f66710dd1"
+authors = ["Yi-Xin Liu <lyx@fudan.edu.cn>"]
+version = "0.1.0"
+
 [deps]
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 ColorSchemes = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
+
+[compat]
+CairoMakie = "^0.6.3"
+ColorSchemes = "^3.14"
