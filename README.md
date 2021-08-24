@@ -18,7 +18,7 @@ julia> # Press the key "]"
 
 ## Usage
 
-```console
+```julia
 using MakiePublication
 using CairoMakie
 using LaTeXStrings
