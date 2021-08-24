@@ -9,7 +9,8 @@ begin
 	using Pkg
 	Pkg.add("CairoMakie")
 	Pkg.add("LaTeXStrings")
-	Pkg.develop(url="/Users/lyx/SynologyDrive/Develop/MakiePublication")
+	# Pkg.develop(url="/Users/lyx/SynologyDrive/Develop/MakiePublication")
+	Pkg.add(url="https://github.com/liuyxpp/MakiePublication.jl")
 	using CairoMakie
 	using LaTeXStrings
 end
