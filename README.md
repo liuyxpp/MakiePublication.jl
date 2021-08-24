@@ -48,7 +48,7 @@ savefig("myplot.pdf", fig)
 
 Sample figures can be found in the `doc` folder.
 
-Please see the Pluto notebook `doc/tutorial.html` for a detailed demonstration of this package.
+Please see the Pluto notebook `doc/tutorial.jl.html` for a detailed demonstration of this package.
 
 ## Contribute
 
@@ -60,4 +60,4 @@ Please see the Pluto notebook `doc/tutorial.html` for a detailed demonstration o
 
 * [Source code](https://github.com/liuyxpp/MakiePublication.jl)
 * [Documentation](http://www.yxliu.group/2021/08/makie-publication) (coming soon...)
-* [Tutorial in Pluto notebook](https://github.com/liuyxpp/MakiePublication.jl/blob/master/doc/tutorial.html)
+* [Tutorial in Pluto notebook](https://github.com/liuyxpp/MakiePublication.jl/blob/master/doc/tutorial.jl.html)
