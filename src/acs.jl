@@ -4,7 +4,8 @@
     Makie theme for producing figures for ACS (American Chemical Society). Save the figure using `save("path_to_figure.pdf", fig, pt_per_unit=1.0)`.
 
 """
-function theme_acs(width=3.25,
+function theme_acs(;
+                   width=3.25,
                    colors=ColorSchemes.glasbey_hv_n256.colors,
                    markers=nothing,
                    cycle=Cycle([:color, :marker], covary=true),
@@ -49,6 +50,8 @@ function theme_acs(width=3.25,
         framevisible=false,
         labelsize=7.5,
         padding=(2, 2, 2, 2),
+        margin=(0, 0, 0, 0),
+        # position=:rt, # l=left, r=right, c=center; b=bottom, t=top, c=center
         rowgap=-10,
         colgap=4,
     )
@@ -64,12 +67,14 @@ function theme_acs(width=3.25,
                  Legend=legend_theme,)
 end
 
-theme_acs_1col(colors=ColorSchemes.glasbey_hv_n256.colors,
+theme_acs_1col(;
+               colors=ColorSchemes.glasbey_hv_n256.colors,
                markers=nothing,
                cycle=Cycle([:color, :marker], covary=true),
-              ) = theme_acs(3.25, colors, markers, cycle)
+              ) = theme_acs(width=3.25, colors=colors, markers=markers, cycle=cycle)
 
-theme_acs_2col(colors=ColorSchemes.glasbey_hv_n256.colors,
+theme_acs_2col(;
+               colors=ColorSchemes.glasbey_hv_n256.colors,
                markers=nothing,
                cycle=Cycle([:color, :marker], covary=true),
-              ) = theme_acs(7.0, colors, markers, cycle)
+              ) = theme_acs(width=7.0, colors=colors, markers=markers, cycle=cycle)

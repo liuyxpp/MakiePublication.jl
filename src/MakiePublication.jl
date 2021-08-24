@@ -5,7 +5,7 @@ using ColorSchemes
 
 include("utils.jl")
 export
-    figsize
+    figsize,
     savefig
 
 include("schemes.jl")
