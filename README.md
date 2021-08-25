@@ -4,7 +4,8 @@
 
 ## Features
 
-* Provide a collection of custom themes for journal publishers.
+* Provide a collection of custom themes for journal publishers: ACS, APS, RSC.
+* Custom theme for making figures suitable for web pages.
 
 ## Install
 

@@ -1,10 +1,10 @@
 """
-    theme_acs(width=3.25, colors=COLORS, markers=MARDERS, cycle=CYCLE)
+    theme_rsc(; width=3.26, colors=COLORS, markers=MARDERS, cycle=CYCLE)
 
-Generate Makie theme for producing figures for ACS (American Chemical Society). Save the figure using `savefig("path_to_figure.pdf", fig)` or `save("path_to_figure.pdf", fig, pt_per_unit=1.0)`.
+Generate Makie theme for producing figures for RSC (Royal Society of Chemistry). Save the figure using `savefig("path_to_figure.pdf", fig)` or `save("path_to_figure.pdf", fig, pt_per_unit=1.0)`.
 """
-function theme_acs(;
-                   width=3.25,
+function theme_rsc(;
+                   width=3.26,
                    colors=COLORS,
                    markers=MARKERS,
                    cycle=CYCLE,
@@ -66,14 +66,14 @@ function theme_acs(;
                  Legend=legend_theme,)
 end
 
-theme_acs_1col(;
+theme_rsc_1col(;
                colors=COLORS,
                markers=MARKERS,
                cycle=CYCLE,
-    ) = theme_acs(width=3.25, colors=colors, markers=markers, cycle=cycle)
+    ) = theme_rsc(width=3.26, colors=colors, markers=markers, cycle=cycle)
 
-theme_acs_2col(;
+theme_rsc_2col(;
                colors=COLORS,
                markers=MARKERS,
                cycle=CYCLE,
-    ) = theme_acs(width=7.0, colors=colors, markers=markers, cycle=cycle)
+    ) = theme_rsc(width=6.73, colors=colors, markers=markers, cycle=cycle)

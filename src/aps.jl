@@ -1,9 +1,9 @@
 """
-    theme_acs(width=3.25, colors=COLORS, markers=MARDERS, cycle=CYCLE)
+    theme_aps(width=3.375, colors=COLORS, markers=MARDERS, cycle=CYCLE)
 
-Generate Makie theme for producing figures for ACS (American Chemical Society). Save the figure using `savefig("path_to_figure.pdf", fig)` or `save("path_to_figure.pdf", fig, pt_per_unit=1.0)`.
+Generate Makie theme for producing figures for APS (American Physical Society). Save the figure using `savefig("path_to_figure.pdf", fig)` or `save("path_to_figure.pdf", fig, pt_per_unit=1.0)`.
 """
-function theme_acs(;
+function theme_aps(;
                    width=3.25,
                    colors=COLORS,
                    markers=MARKERS,
@@ -66,14 +66,14 @@ function theme_acs(;
                  Legend=legend_theme,)
 end
 
-theme_acs_1col(;
+theme_aps_1col(;
                colors=COLORS,
                markers=MARKERS,
                cycle=CYCLE,
-    ) = theme_acs(width=3.25, colors=colors, markers=markers, cycle=cycle)
+    ) = theme_aps(width=3.375, colors=colors, markers=markers, cycle=cycle)
 
-theme_acs_2col(;
+theme_aps_2col(;
                colors=COLORS,
                markers=MARKERS,
                cycle=CYCLE,
-    ) = theme_acs(width=7.0, colors=colors, markers=markers, cycle=cycle)
+    ) = theme_aps(width=6.75, colors=colors, markers=markers, cycle=cycle)

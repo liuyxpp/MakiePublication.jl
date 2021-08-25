@@ -69,7 +69,7 @@ function myscatter()
 	l6 = lines!(ax, x, .√x)
 	s6 = scatter!(ax, xs, .√xs, label=L"x^{1/2}")
 	l7 = lines!(ax, x, x.^(1/3))
-	s7 = scatter!(ax, xs, xs.^(1/3), label=L"x^{1/3}")
+	s7 = scatter!(ax, xs, xs.^(1/3), marker=:hexagon, label=L"x^{1/3}")
 	xlims!(0, 1)
 	ylims!(0, 1)
 	
@@ -95,6 +95,9 @@ fig_scatter2 = with_theme(myscatter, theme_acs(cycle=Cycle([:color], covary=true
 # ╔═╡ 1a2bf02e-170b-478c-8c33-8529a7832e2e
 savefig("test_scatter2.pdf", fig_scatter2)
 
+# ╔═╡ 7e89621b-f8c5-4726-91d7-c32b6ee568b3
+fig_web = with_theme(myscatter, theme_web())
+
 # ╔═╡ Cell order:
 # ╠═0da325a8-d6f6-4963-8562-9b7847878c07
 # ╠═9e2e4de7-bf62-4bf9-b263-cb4781a5d46c
@@ -109,3 +112,4 @@ savefig("test_scatter2.pdf", fig_scatter2)
 # ╠═29faf34e-e1a1-443a-8cda-56ec25a910f8
 # ╠═372077d2-e2d6-49db-b504-776afea5cef9
 # ╠═1a2bf02e-170b-478c-8c33-8529a7832e2e
+# ╠═7e89621b-f8c5-4726-91d7-c32b6ee568b3
