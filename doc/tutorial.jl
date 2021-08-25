@@ -44,6 +44,9 @@ end
 # ╔═╡ 5b508e70-8921-407f-8e19-9cd2a3c22e80
 myline()
 
+# ╔═╡ 57ece2db-0068-4d82-8391-ddffefbde28b
+with_theme(myline, theme_web())
+
 # ╔═╡ 2d15b715-6441-4b7c-b751-599c0f5894a3
 fig = with_theme(myline, theme_acs())
 
@@ -96,7 +99,10 @@ fig_scatter2 = with_theme(myscatter, theme_acs(cycle=Cycle([:color], covary=true
 savefig("test_scatter2.pdf", fig_scatter2)
 
 # ╔═╡ 7e89621b-f8c5-4726-91d7-c32b6ee568b3
-fig_web = with_theme(myscatter, MakiePublication.theme_web())
+fig_web = with_theme(myscatter, theme_web())
+
+# ╔═╡ 51cbde74-93f1-4501-8ee3-6e6e5913782f
+save("scatter_web.png", fig_web, px_per_unit=4)
 
 # ╔═╡ Cell order:
 # ╠═0da325a8-d6f6-4963-8562-9b7847878c07
@@ -104,6 +110,7 @@ fig_web = with_theme(myscatter, MakiePublication.theme_web())
 # ╠═44af131a-0904-4d36-b098-01823d6fb8a8
 # ╠═30b0601e-63b9-4986-a311-9685560b55ef
 # ╠═5b508e70-8921-407f-8e19-9cd2a3c22e80
+# ╠═57ece2db-0068-4d82-8391-ddffefbde28b
 # ╠═2d15b715-6441-4b7c-b751-599c0f5894a3
 # ╠═b78fde28-81ed-4c31-a161-43ceef0d7c42
 # ╠═6c1907e1-5298-438d-b6ef-9adb92d849f1
@@ -113,3 +120,4 @@ fig_web = with_theme(myscatter, MakiePublication.theme_web())
 # ╠═372077d2-e2d6-49db-b504-776afea5cef9
 # ╠═1a2bf02e-170b-478c-8c33-8529a7832e2e
 # ╠═7e89621b-f8c5-4726-91d7-c32b6ee568b3
+# ╠═51cbde74-93f1-4501-8ee3-6e6e5913782f
