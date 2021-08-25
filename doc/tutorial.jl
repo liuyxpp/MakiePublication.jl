@@ -69,7 +69,7 @@ function myscatter()
 	l6 = lines!(ax, x, .√x)
 	s6 = scatter!(ax, xs, .√xs, label=L"x^{1/2}")
 	l7 = lines!(ax, x, x.^(1/3))
-	s7 = scatter!(ax, xs, xs.^(1/3), marker=:hexagon, label=L"x^{1/3}")
+	s7 = scatter!(ax, xs, xs.^(1/3), label=L"x^{1/3}")
 	xlims!(0, 1)
 	ylims!(0, 1)
 	
@@ -96,7 +96,7 @@ fig_scatter2 = with_theme(myscatter, theme_acs(cycle=Cycle([:color], covary=true
 savefig("test_scatter2.pdf", fig_scatter2)
 
 # ╔═╡ 7e89621b-f8c5-4726-91d7-c32b6ee568b3
-fig_web = with_theme(myscatter, theme_web())
+fig_web = with_theme(myscatter, MakiePublication.theme_web())
 
 # ╔═╡ Cell order:
 # ╠═0da325a8-d6f6-4963-8562-9b7847878c07
