@@ -53,20 +53,21 @@ The possible file formats can be
 # ╔═╡ 1960952f-6bf2-4725-8761-d5d55c9afc96
 function test_anim()
 	a, b = -10, 10
-	xs = range(a, b, length=100)
+	xs = range(a, b, length=200)
 	ys = tanh.(xs .- a)
 	ys = Observable(ys)
 
 	fig = lines(xs, ys)
 	xlims!(a, b)
-	ylims!(-1.1, 1.1)
+	ylims!(0, 1.1)
 	
 	framerate = 30
 	positions = range(a, b, step=1/framerate)
 
 	record(fig, "test_animation.mp4", positions;
 			framerate=framerate) do x0
-		ys[] = tanh.(xs .- x0)
+		ys[] = (sech.(0.5*(xs .- x0))).^2
+		# ys[] = tanh.(xs .- x0) # step-like function
 	end
 	# return fig, ys
 end
@@ -91,8 +92,11 @@ end
 # ╔═╡ d09dd02f-6389-4c9e-af3d-60aede20d6d0
 function propagate(t, w::Wave)
 	xs = range(w.a, w.b, length=w.N)
-	return tanh.(xs .- w.x0 .- w.v*t)
+	return (sech.(0.5*√w.v*(xs .- w.x0 .- w.v*t))).^2
 end
+
+# ╔═╡ d3b05534-108b-4859-8c19-4b13d403f4c5
+sech(0)
 
 # ╔═╡ 9ec1519c-e6d5-4d63-971f-ff0f271e3bbc
 propagate(5.0, Wave(-10.0, 10.0, -10.0, 1.0, 100) )
@@ -108,7 +112,7 @@ function test_anim2(w::Wave)
 
 	fig = lines(xs, ys_obs)
 	xlims!(w.a, w.b)
-	ylims!(-1.1, 1.1)
+	ylims!(0, 1.1)
 	
 	framerate = 30
 	Δt = 1/framerate
@@ -122,7 +126,7 @@ function test_anim2(w::Wave)
 end
 
 # ╔═╡ de99df6f-a061-4be6-91f0-a978ee222da4
-test_anim2(Wave(-10.0, 10.0, -10.0, 1.0, 100))
+test_anim2(Wave(-10.0, 10.0, -10.0, 1.0, 200))
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1192,6 +1196,7 @@ version = "3.5.0+0"
 # ╠═21cf47e0-6ebc-4cd6-81de-0024f4849472
 # ╠═883e8fdf-82b8-46a5-80d2-4bb280d75747
 # ╠═d09dd02f-6389-4c9e-af3d-60aede20d6d0
+# ╠═d3b05534-108b-4859-8c19-4b13d403f4c5
 # ╠═9ec1519c-e6d5-4d63-971f-ff0f271e3bbc
 # ╠═3f35cb2a-b83b-45b2-a146-6842311ea859
 # ╠═aa894511-af50-4c7b-9967-5fa1f96446a1
