@@ -1,6 +1,6 @@
 # MakiePublication.jl
 
-**MakiePublication.jl** is a Julia package for producing publication quality figures based on [Makie.jl](https://github.com/JuliaPlots/Makie.jl), which is an equivalent of the Python package [mpltex](https://github.com/liuyxpp/mpltex).
+**MakiePublication.jl** is a Julia package for producing publication quality figures based on [Makie.jl](https://github.com/JuliaPlots/Makie.jl). **MakiePublication.jl** aims to provide an equivalent functionalities as the Python package [mpltex](https://github.com/liuyxpp/mpltex).
 
 ## Features
 
@@ -14,7 +14,7 @@ MakiePublication can be installed from the Julia REPL.
 ```console
 julia> # Press the key "]"
 
-(@v1.6) pkg> add https://github.com/liuyxpp/MakiePublication.jl
+(@v1.7) pkg> add MakiePublication
 ```
 
 ## Usage
@@ -60,5 +60,4 @@ Please see the Pluto notebook `doc/tutorial.jl.html` for a detailed demonstratio
 ## Links
 
 * [Source code](https://github.com/liuyxpp/MakiePublication.jl)
-* [Documentation](http://www.yxliu.group/2021/08/makie-publication) (coming soon...)
 * [Tutorial in Pluto notebook](https://github.com/liuyxpp/MakiePublication.jl/blob/master/doc/tutorial.jl.html)
