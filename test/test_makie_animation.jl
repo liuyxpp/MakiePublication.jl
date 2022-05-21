@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.15.1
+# v0.16.0
 
 using Markdown
 using InteractiveUtils
@@ -127,6 +127,44 @@ end
 
 # ╔═╡ de99df6f-a061-4be6-91f0-a978ee222da4
 test_anim2(Wave(-10.0, 10.0, -10.0, 1.0, 200))
+
+# ╔═╡ 4f91f200-661e-4cbf-b237-8effa43f281a
+md"""
+### Inline stream video
+"""
+
+# ╔═╡ b0938307-433d-4053-a082-eff66939a371
+begin
+	fig, ax, pl = scatter(rand(Point2f0, 10))
+	
+	CairoMakie.Makie.Record(fig, 1:20) do i
+		pl[1] = rand(Point2f0, 10)
+	end
+end
+
+# ╔═╡ 6cf927ab-e328-4a97-8bb9-8d2abb0a6062
+begin
+	w = Wave(-10.0, 10.0, -10.0, 1.0, 200)
+	xs2 = range(w.a, w.b, length=w.N)
+	ys = propagate(0, w)
+	ys_obs = Observable(ys)
+
+	fig2 = lines(xs2, ys_obs)
+	xlims!(w.a, w.b)
+	ylims!(0, 1.1)
+	
+	framerate = 30
+	Δt = 1/framerate
+	timestamps = range(Δt, (w.b-w.a)/w.v, step=Δt)
+
+	CairoMakie.Makie.Record(fig2, timestamps;
+			framerate=framerate) do t
+		ys_obs[] = propagate(t, w)
+	end
+end
+
+# ╔═╡ fcac3efe-a773-4a74-873c-4e96e156250d
+
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -644,9 +682,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[MKL_jll]]
 deps = ["Artifacts", "IntelOpenMP_jll", "JLLWrappers", "LazyArtifacts", "Libdl", "Pkg"]
-git-tree-sha1 = "c253236b0ed414624b083e6b72bfe891fbd2c7af"
+git-tree-sha1 = "5455aef09b40e5020e1520f551fa3135040d4ed0"
 uuid = "856f044c-d86e-5d09-b602-aeab76dc8ba7"
-version = "2021.1.1+1"
+version = "2021.1.1+2"
 
 [[Makie]]
 deps = ["Animations", "Base64", "ColorBrewer", "ColorSchemes", "ColorTypes", "Colors", "Contour", "Distributions", "DocStringExtensions", "FFMPEG", "FileIO", "FixedPointNumbers", "Formatting", "FreeType", "FreeTypeAbstraction", "GeometryBasics", "GridLayoutBase", "ImageIO", "IntervalSets", "Isoband", "KernelDensity", "LaTeXStrings", "LinearAlgebra", "MakieCore", "Markdown", "Match", "MathTeXEngine", "Observables", "Packing", "PlotUtils", "PolygonOps", "Printf", "Random", "RelocatableFolders", "Serialization", "Showoff", "SignedDistanceFields", "SparseArrays", "StaticArrays", "Statistics", "StatsBase", "StatsFuns", "StructArrays", "UnicodeFun"]
@@ -1201,5 +1239,9 @@ version = "3.5.0+0"
 # ╠═3f35cb2a-b83b-45b2-a146-6842311ea859
 # ╠═aa894511-af50-4c7b-9967-5fa1f96446a1
 # ╠═de99df6f-a061-4be6-91f0-a978ee222da4
+# ╠═4f91f200-661e-4cbf-b237-8effa43f281a
+# ╠═b0938307-433d-4053-a082-eff66939a371
+# ╠═6cf927ab-e328-4a97-8bb9-8d2abb0a6062
+# ╠═fcac3efe-a773-4a74-873c-4e96e156250d
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
