@@ -10,6 +10,6 @@ Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
 
 [compat]
 Makie = "0.18"
-CairoMakie = "0.6.4, 0.7, 0.8, 0.9"
+CairoMakie = "0.9"
 ColorSchemes = "3.14"
 julia = "1.5"
