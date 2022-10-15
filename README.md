@@ -53,7 +53,7 @@ Please see the Pluto notebook `doc/tutorial.jl.html` for a detailed demonstratio
 
 ## Colors
 
-The default color cycle is 10-color [seanborn_deep](https://juliagraphics.github.io/ColorSchemes.jl/stable/catalogue/#Seaborn). MakiePublication also provides carefully tweaked color palettes based on well-known palettes, such as `tab10`, `tableau_10`, `Makie.wong_colors`, `okabe_ito`, etc. You can choose it from the array `MakiePublication.COLORS` and use it like this:
+The default color cycle is 10-color [seanborn_deep](https://juliagraphics.github.io/ColorSchemes.jl/stable/catalogue/#Seaborn). MakiePublication also provides 15 carefully chosen color palettes based on well-known palettes, such as `tab10`, `tableau_10`, `Makie.wong_colors`, `okabe_ito`, etc. The colors in each palette has been reordered if necessary to be consistent with the order of the default matplotlib color palette, `tab10`. The order is: blue, orange, green, red, purple, brown, pink, gray, yellow, and cyan. You can choose it from the array `MakiePublication.COLORS` and use it like this:
 
 ```julia
 with_theme(myplot, theme_web(colors=MakiePublication.COLORS[6]))
@@ -65,7 +65,7 @@ Or obtain the color palette by calling a function:
 with_theme(myplot, theme_web(colors=MakiePublication.okabe_ito())
 ```
 
-A full demonstration of all color palettes can be found in the Pluto notebook `doc/makiepub_colors.jl.html`.
+The demonstration of available color palettes can be found in the Pluto notebook `doc/makiepub_colors.jl.html`.
 
 ## Contribute
 

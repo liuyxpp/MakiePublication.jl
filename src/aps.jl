@@ -4,7 +4,7 @@
 Generate Makie theme for producing figures for APS (American Physical Society). Save the figure using `savefig("path_to_figure.pdf", fig)` or `save("path_to_figure.pdf", fig, pt_per_unit=1.0)`.
 """
 function theme_aps(;
-                   width=3.25,
+                   width=3.375,
                    colors=COLORS[1],
                    markers=MARKERS,
                    cycle=CYCLE,
