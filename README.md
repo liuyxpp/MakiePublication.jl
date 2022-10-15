@@ -19,32 +19,33 @@ julia> # Press the key "]"
 
 ## Quick Start
 
+MakiePublication provides a number of `theme_*` methods to generate themes (`Makie.Theme` instances) which can be given to [Makie's theming methods](https://docs.makie.org/stable/documentation/theming/index.html): `set_theme!`, `update_theme!`, and `with_theme`. A typical usage pattern is
+
 ```julia
 using MakiePublication
 using CairoMakie
-using LaTeXStrings
 
+with_theme(theme_web()) do
+    lines(0..10, sin)
+    lines!(0..10, cos)
+    current_figure()
+end
+```
+
+Or if you have a more complicated plotting function,
+
+```julia
 function myplot()
-  x = 0:0.001:1.0
-  fig = Figure(figure_padding=(0, 6, 0, 4))
-  ax = Axis(fig, xlabel=L"x", ylabel=L"f(x)")
-  lines!(ax, x, x, label=L"x")
-  lines!(ax, x, x.^2, label=L"x^2")
-  lines!(ax, x, x.^3, label=L"x^3")
-  lines!(ax, x, x.^4, label=L"x^4")
-  lines!(ax, x, log.(x.+1), label=L"\ln(1+x)")
-  lines!(ax, x, .√x, label=L"x^{1/2}")
-  lines!(ax, x, x.^(1/3), label=L"x^{1/3}")
-  xlims!(0, 1)
-  ylims!(0, 1)
-  
-  fig[1,1] = ax
-  
-  return fig
+    fig = Figure(figure_padding=(2, 6, 1, 6))
+    ax = Axis(fig, xlabel=L"x", ylabel=L"f(x)")
+    lines!(ax, 0..10, sin)
+    lines!(ax, 0..10, cos)
+
+    fig[1,1] = ax
+    fig
 end
 
-fig = with_theme(myplot, theme_acs())
-savefig("myplot.pdf", fig)
+with_theme(myplot, theme_web())
 ```
 
 Sample figures can be found in the `doc` folder.
@@ -53,7 +54,7 @@ Please see the Pluto notebook `doc/tutorial.jl.html` for a detailed demonstratio
 
 ## Colors
 
-The default color cycle is 10-color [seanborn_deep](https://juliagraphics.github.io/ColorSchemes.jl/stable/catalogue/#Seaborn). MakiePublication also provides 15 carefully chosen color palettes based on well-known palettes, such as `tab10`, `tableau_10`, `Makie.wong_colors`, `okabe_ito`, etc. The colors in each palette has been reordered if necessary to be consistent with the order of the default matplotlib color palette, `tab10`. The order is: blue, orange, green, red, purple, brown, pink, gray, yellow, and cyan. You can choose it from the array `MakiePublication.COLORS` and use it like this:
+The default color cycle is 10-color [seanborn_deep](https://juliagraphics.github.io/ColorSchemes.jl/stable/catalogue/#Seaborn) (since v0.2.3). MakiePublication also provides 15 carefully chosen color palettes based on well-known palettes, such as `tab10`, `tableau_10`, `Makie.wong_colors`, `okabe_ito`, etc. The colors in each palette has been reordered if necessary to be consistent with the order of the default matplotlib color palette, `tab10`. The order is: blue, orange, green, red, purple, brown, pink, gray, yellow, and cyan. You can choose it from the array `MakiePublication.COLORS` and use it like this:
 
 ```julia
 with_theme(myplot, theme_web(colors=MakiePublication.COLORS[6]))
@@ -66,6 +67,20 @@ with_theme(myplot, theme_web(colors=MakiePublication.okabe_ito())
 ```
 
 The demonstration of available color palettes can be found in the Pluto notebook `doc/makiepub_colors.jl.html`.
+
+## Showcase of Themes
+
+- `theme_acs` for American Chemical Society (ACS)
+
+![ACS](doc/figures/acs.svg)
+
+- `theme_aps` for American Physical Society (APS) and American Institute of Physics (AIP)
+
+![APS](doc/figures/aps.svg)
+
+- `theme_rsc` for Royal Society of Chemistry (RSC)
+
+![RSC](doc/figures/rsc.svg)
 
 ## Contribute
 
