@@ -1,5 +1,7 @@
 # MakiePublication.jl
 
+![APS](doc/figures/aps.svg)
+
 **MakiePublication.jl** is a Julia package for producing publication quality figures based on [Makie.jl](https://github.com/JuliaPlots/Makie.jl). It aims to provide an equivalent functionalities as the Python package [mpltex](https://github.com/liuyxpp/mpltex).
 
 ## Features
