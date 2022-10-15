@@ -17,7 +17,7 @@ julia> # Press the key "]"
 (@v1.7) pkg> add MakiePublication
 ```
 
-## Usage
+## Quick Start
 
 ```julia
 using MakiePublication
@@ -50,6 +50,22 @@ savefig("myplot.pdf", fig)
 Sample figures can be found in the `doc` folder.
 
 Please see the Pluto notebook `doc/tutorial.jl.html` for a detailed demonstration of this package.
+
+## Colors
+
+The default color cycle is 10-color [seanborn_deep](https://juliagraphics.github.io/ColorSchemes.jl/stable/catalogue/#Seaborn). MakiePublication also provides carefully tweaked color palettes based on well-known palettes, such as `tab10`, `tableau_10`, `Makie.wong_colors`, `okabe_ito`, etc. You can choose it from the array `MakiePublication.COLORS` and use it like this:
+
+```julia
+with_theme(myplot, theme_web(colors=MakiePublication.COLORS[6]))
+```
+
+Or obtain the color palette by calling a function:
+
+```julia
+with_theme(myplot, theme_web(colors=MakiePublication.okabe_ito())
+```
+
+A full demonstration of all color palettes can be found in the Pluto notebook `doc/makiepub_colors.jl.html`.
 
 ## Contribute
 

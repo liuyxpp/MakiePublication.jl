@@ -6,8 +6,10 @@ version = "0.2.2"
 [deps]
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 ColorSchemes = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
 
 [compat]
+Makie = "0.18"
 CairoMakie = "0.6.4, 0.7, 0.8, 0.9"
 ColorSchemes = "3.14"
 julia = "1.5"

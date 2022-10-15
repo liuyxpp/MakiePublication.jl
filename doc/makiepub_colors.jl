@@ -1,8 +1,160 @@
+### A Pluto.jl notebook ###
+# v0.19.13
+
+using Markdown
+using InteractiveUtils
+
+# ╔═╡ 2cb2e903-1af7-4180-8dd2-4e4467bc8647
+begin
+	using Makie
+	using CairoMakie
+	using ColorSchemes
+	using MakiePublication
+end
+
+# ╔═╡ d9ef052a-a422-4f78-87b9-e0356bdd895a
+function myline()
+	x = 0:0.001:1.0
+	xs = 0:0.08:1.0
+	fig = Figure(figure_padding=(6, 12, 0, 10))
+	ax = Axis(fig, xlabel=L"x", ylabel=L"f(x)")
+	l1 = lines!(ax, x, x.^5, label=L"x^5")
+	s1 = scatter!(ax, xs, xs.^5)
+	l2 = lines!(ax, x, x.^4, label=L"x^4")
+	s2 = scatter!(ax, xs, xs.^4)
+	l3 = lines!(ax, x, x.^3, label=L"x^3")
+	s3 = scatter!(ax, xs, xs.^3)
+	l4 = lines!(ax, x, x.^2, label=L"x^2")
+	s4 = scatter!(ax, xs, xs.^2)
+	l5 = lines!(ax, x, x, label=L"x")
+	s5 = scatter!(ax, xs, xs)
+	l6 = lines!(ax, x, x.^(1/2), label=L"x^{1/2}")
+	s6 = scatter!(ax, xs, xs.^(1/2))
+	l7 = lines!(ax, x, x.^(1/3), label=L"x^{1/3}")
+	s7 = scatter!(ax, xs, xs.^(1/3))
+	l8 = lines!(ax, x, x.^(1/4), label=L"x^{1/4}")
+	s8 = scatter!(ax, xs, xs.^(1/4))
+	l9 = lines!(ax, x, x.^(1/5), label=L"x^{1/5}")
+	s9 = scatter!(ax, xs, xs.^(1/5))
+	l10 = lines!(ax, x, x.^(1/6), label=L"x^{1/6}")
+	s10 = scatter!(ax, xs, xs.^(1/6))
+	xlims!(0, 1)
+	ylims!(0, 1)
+
+	axislegend(ax, [[l1, s1], [l2, s2], [l3, s3], [l4, s4], [l5, s5], [l6, s6], [l7, s7], [l8, s8], [l9, s9], [l10, s10]],
+		[L"x^5", L"x^4", L"x^3", L"x^2", L"x", L"x^{1/2}", L"x^{1/3}", L"x^{1/4}", L"x^{1/5}", L"x^{1/6}"], nbanks=3, position=:lt, margin=(5,0,0,0), padding=(0,0,0,0))
+	
+	fig[1,1] = ax
+	
+	return fig
+end
+
+# ╔═╡ b700be32-368a-4b66-be79-5eba2e0067f8
+with_theme(myline, theme_web())  # MakiePublication default
+
+# ╔═╡ 3ded4481-197a-4f72-bded-75b85e19459c
+let
+	ids = [9, 3, 4, 8, 7, 2, 10, 5, 1, 6]
+	glasbey_hv_n256_reordered = ColorSchemes.glasbey_hv_n256.colors[ids]
+	with_theme(myline, theme_web(colors=glasbey_hv_n256_reordered))
+end
+
+# ╔═╡ ce66830b-af68-4bf1-a16c-213cfcee82ae
+let
+	ids = [1, 2, 3, 6, 4, 5, 7]
+	wong_reordered = Makie.wong_colors()[ids]
+	with_theme(myline, theme_web(colors=wong_reordered))
+end
+
+# ╔═╡ b6dd295c-d2fd-4735-84fd-7860e8aedd2d
+with_theme(myline, theme_web(colors=ColorSchemes.tab10.colors))
+
+# ╔═╡ 5f641ccd-a532-4e87-a343-c4ef8452b37c
+let
+	ids = [1, 2, 5, 3, 7, 9, 8, 10, 6, 4]
+	tableau_10_reordered = ColorSchemes.tableau_10.colors[ids]
+	with_theme(myline, theme_web(colors=tableau_10_reordered))
+end
+
+# ╔═╡ 20843160-9b1a-49e4-83d8-6633f1eb816d
+let
+	ids = [1, 2, 5, 3, 7, 8, 10, 9, 6, 4]
+	tableau_superfishel_stone_reordered = ColorSchemes.tableau_superfishel_stone.colors[ids]
+	with_theme(myline, theme_web(colors=tableau_superfishel_stone_reordered))
+end
+
+# ╔═╡ 46e19bf1-c128-45d0-a5e9-37c283709ceb
+with_theme(myline, theme_web(colors=ColorSchemes.seaborn_colorblind.colors))
+
+# ╔═╡ 34e2db3e-7e1b-4760-9b56-28b2139ef5cd
+with_theme(myline, theme_web(colors=ColorSchemes.seaborn_dark.colors))
+
+# ╔═╡ 2b74f9f3-a19f-41e1-a9f9-af0c42772d69
+with_theme(myline, theme_web(colors=ColorSchemes.seaborn_muted.colors))
+
+# ╔═╡ 591f0da3-ca5b-4879-90df-9322890ab94f
+with_theme(myline, theme_web(colors=ColorSchemes.seaborn_deep.colors))
+
+# ╔═╡ 3cb40b75-13de-4e6c-8cfb-220904185cf9
+with_theme(myline, theme_web(colors=ColorSchemes.seaborn_bright.colors))
+
+# ╔═╡ 9d910969-38e2-419d-bef5-96843442c2f8
+let
+	ids = [5, 1, 3, 6, 7, 8, 4, 2]
+	okabe_ito_reordered = ColorSchemes.okabe_ito.colors[ids]
+	with_theme(myline, theme_web(colors=okabe_ito_reordered))
+end
+
+# ╔═╡ 0b4f87e4-bc06-4b6f-8a3b-bdfd4a9e2183
+let
+	ids = [2, 7, 5, 6, 4, 1, 8, 3]
+	mk_8_reordered = ColorSchemes.mk_8.colors[ids]
+	with_theme(myline, theme_web(colors=mk_8_reordered))
+end
+
+# ╔═╡ c855ba0e-aae2-42ed-b075-18b664ca3436
+let
+	ids = [3, 4, 2, 1, 6, 7, 5]
+	tol_bright_reordered = ColorSchemes.tol_bright.colors[ids]
+	with_theme(myline, theme_web(colors=tol_bright_reordered))
+end
+
+# ╔═╡ 7e489525-4761-4037-a98f-99bf8d323269
+let
+	ids = [1, 6, 5, 2, 3, 7, 4, 8]
+	Dark2_8_reordered = ColorSchemes.Dark2_8.colors[ids]
+	with_theme(myline, theme_web(colors=Dark2_8_reordered))
+end
+
+# ╔═╡ 301188f3-5036-4c45-9d2c-56de6fa833e8
+let
+	ids = [2, 5, 3, 1, 4, 7, 8, 6]
+	Set1_8_reordered = ColorSchemes.Set1_8.colors[ids]
+	with_theme(myline, theme_web(colors=Set1_8_reordered))
+end
+
+# ╔═╡ 00000000-0000-0000-0000-000000000001
+PLUTO_PROJECT_TOML_CONTENTS = """
+[deps]
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+ColorSchemes = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+MakiePublication = "dde8697e-0d61-460d-88dd-856f66710dd1"
+
+[compat]
+CairoMakie = "~0.8.13"
+ColorSchemes = "~3.19.0"
+Makie = "~0.17.13"
+MakiePublication = "~0.2.2"
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000002
+PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
 julia_version = "1.8.2"
 manifest_format = "2.0"
-project_hash = "d0dce9229b806bfc0f529dd831d19b5752356eb7"
+project_hash = "cbfad63055e4515077444975c77becdfd2dd7667"
 
 [[deps.AbstractFFTs]]
 deps = ["ChainRulesCore", "LinearAlgebra"]
@@ -67,10 +219,10 @@ uuid = "159f3aea-2a34-519c-b102-8c37f9878175"
 version = "1.0.5"
 
 [[deps.CairoMakie]]
-deps = ["Base64", "Cairo", "Colors", "FFTW", "FileIO", "FreeType", "GeometryBasics", "LinearAlgebra", "Makie", "SHA", "SnoopPrecompile"]
-git-tree-sha1 = "f53b586e9489163ece213144a5a6417742f0388e"
+deps = ["Base64", "Cairo", "Colors", "FFTW", "FileIO", "FreeType", "GeometryBasics", "LinearAlgebra", "Makie", "SHA"]
+git-tree-sha1 = "387e0102f240244102814cf73fe9fbbad82b9e9e"
 uuid = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
-version = "0.9.0"
+version = "0.8.13"
 
 [[deps.Cairo_jll]]
 deps = ["Artifacts", "Bzip2_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "JLLWrappers", "LZO_jll", "Libdl", "Pixman_jll", "Pkg", "Xorg_libXext_jll", "Xorg_libXrender_jll", "Zlib_jll", "libpng_jll"]
@@ -283,9 +435,9 @@ version = "2.10.4+0"
 
 [[deps.FreeTypeAbstraction]]
 deps = ["ColorVectorSpace", "Colors", "FreeType", "GeometryBasics"]
-git-tree-sha1 = "38a92e40157100e796690421e34a11c107205c86"
+git-tree-sha1 = "b5c7fe9cea653443736d264b85466bad8c574f4a"
 uuid = "663a7486-cb36-511b-a19d-713bb74d65c9"
-version = "0.10.0"
+version = "0.9.9"
 
 [[deps.FriBidi_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -563,16 +715,22 @@ uuid = "856f044c-d86e-5d09-b602-aeab76dc8ba7"
 version = "2022.2.0+0"
 
 [[deps.Makie]]
-deps = ["Animations", "Base64", "ColorBrewer", "ColorSchemes", "ColorTypes", "Colors", "Contour", "Distributions", "DocStringExtensions", "FFMPEG", "FileIO", "FixedPointNumbers", "Formatting", "FreeType", "FreeTypeAbstraction", "GeometryBasics", "GridLayoutBase", "ImageIO", "InteractiveUtils", "IntervalSets", "Isoband", "KernelDensity", "LaTeXStrings", "LinearAlgebra", "MakieCore", "Markdown", "Match", "MathTeXEngine", "MiniQhull", "Observables", "OffsetArrays", "Packing", "PlotUtils", "PolygonOps", "Printf", "Random", "RelocatableFolders", "Serialization", "Showoff", "SignedDistanceFields", "SnoopPrecompile", "SparseArrays", "Statistics", "StatsBase", "StatsFuns", "StructArrays", "TriplotBase", "UnicodeFun"]
-git-tree-sha1 = "51e40869d076fbff25ab61d0aa3e198d80176c75"
+deps = ["Animations", "Base64", "ColorBrewer", "ColorSchemes", "ColorTypes", "Colors", "Contour", "Distributions", "DocStringExtensions", "FFMPEG", "FileIO", "FixedPointNumbers", "Formatting", "FreeType", "FreeTypeAbstraction", "GeometryBasics", "GridLayoutBase", "ImageIO", "IntervalSets", "Isoband", "KernelDensity", "LaTeXStrings", "LinearAlgebra", "MakieCore", "Markdown", "Match", "MathTeXEngine", "Observables", "OffsetArrays", "Packing", "PlotUtils", "PolygonOps", "Printf", "Random", "RelocatableFolders", "Serialization", "Showoff", "SignedDistanceFields", "SparseArrays", "Statistics", "StatsBase", "StatsFuns", "StructArrays", "UnicodeFun"]
+git-tree-sha1 = "b0323393a7190c9bf5b03af442fc115756df8e59"
 uuid = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
-version = "0.18.0"
+version = "0.17.13"
 
 [[deps.MakieCore]]
 deps = ["Observables"]
-git-tree-sha1 = "b87650f61f85fc2d4fb5923a479dbf05ba65ae4d"
+git-tree-sha1 = "fbf705d2bdea8fc93f1ae8ca2965d8e03d4ca98c"
 uuid = "20f20a25-4f0e-4fdf-b5d1-57303727442b"
-version = "0.5.0"
+version = "0.4.0"
+
+[[deps.MakiePublication]]
+deps = ["CairoMakie", "ColorSchemes"]
+git-tree-sha1 = "43397c9afc58942824fce6e596d6773ec44ce4f1"
+uuid = "dde8697e-0d61-460d-88dd-856f66710dd1"
+version = "0.2.2"
 
 [[deps.MappedArrays]]
 git-tree-sha1 = "e8b359ef06ec72e8c030463fe02efe5527ee5142"
@@ -589,21 +747,15 @@ uuid = "7eb4fadd-790c-5f42-8a69-bfa0b872bfbf"
 version = "1.2.0"
 
 [[deps.MathTeXEngine]]
-deps = ["AbstractTrees", "Automa", "DataStructures", "FreeTypeAbstraction", "GeometryBasics", "LaTeXStrings", "REPL", "RelocatableFolders", "Test", "UnicodeFun"]
-git-tree-sha1 = "03d7e6e449f2c53907016a2e858d6f6139e68cff"
+deps = ["AbstractTrees", "Automa", "DataStructures", "FreeTypeAbstraction", "GeometryBasics", "LaTeXStrings", "REPL", "RelocatableFolders", "Test"]
+git-tree-sha1 = "114ef48a73aea632b8aebcb84f796afcc510ac7c"
 uuid = "0a4f8689-d25c-4efe-a92b-7142dfc1aa53"
-version = "0.5.2"
+version = "0.4.3"
 
 [[deps.MbedTLS_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
 version = "2.28.0+0"
-
-[[deps.MiniQhull]]
-deps = ["QhullMiniWrapper_jll"]
-git-tree-sha1 = "9dc837d180ee49eeb7c8b77bb1c860452634b0d1"
-uuid = "978d7f02-9e05-4691-894f-ae31a51d76ca"
-version = "0.4.0"
 
 [[deps.Missings]]
 deps = ["DataAPI"]
@@ -793,18 +945,6 @@ git-tree-sha1 = "18e8f4d1426e965c7b532ddd260599e1510d26ce"
 uuid = "4b34888f-f399-49d4-9bb3-47ed5cae4e65"
 version = "1.0.0"
 
-[[deps.QhullMiniWrapper_jll]]
-deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg", "Qhull_jll"]
-git-tree-sha1 = "607cf73c03f8a9f83b36db0b86a3a9c14179621f"
-uuid = "460c41e3-6112-5d7f-b78c-b6823adb3f2d"
-version = "1.0.0+1"
-
-[[deps.Qhull_jll]]
-deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
-git-tree-sha1 = "695c3049ad94fa38b7f1e8243cdcee27ecad0867"
-uuid = "784f63db-0788-585a-bace-daefebcd302b"
-version = "8.0.1000+0"
-
 [[deps.QuadGK]]
 deps = ["DataStructures", "LinearAlgebra"]
 git-tree-sha1 = "3c009334f45dfd546a16a57960a821a1a023d241"
@@ -832,9 +972,9 @@ version = "1.2.2"
 
 [[deps.RelocatableFolders]]
 deps = ["SHA", "Scratch"]
-git-tree-sha1 = "90bc7a7c96410424509e4263e277e43250c05691"
+git-tree-sha1 = "22c5201127d7b243b9ee1de3b43c408879dff60f"
 uuid = "05181044-ff0b-4ac5-8273-598c1e38db00"
-version = "1.0.0"
+version = "0.3.0"
 
 [[deps.Requires]]
 deps = ["UUIDs"]
@@ -1017,11 +1157,6 @@ git-tree-sha1 = "8a75929dcd3c38611db2f8d08546decb514fcadf"
 uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
 version = "0.9.9"
 
-[[deps.TriplotBase]]
-git-tree-sha1 = "4d4ed7f294cda19382ff7de4c137d24d16adc89b"
-uuid = "981d1d27-644d-49a2-9326-4793e63143c3"
-version = "0.1.0"
-
 [[deps.UUIDs]]
 deps = ["Random", "SHA"]
 uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
@@ -1174,3 +1309,26 @@ deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
 git-tree-sha1 = "ee567a171cce03570d77ad3a43e90218e38937a9"
 uuid = "dfaa095f-4041-5dcd-9319-2fabd8486b76"
 version = "3.5.0+0"
+"""
+
+# ╔═╡ Cell order:
+# ╠═2cb2e903-1af7-4180-8dd2-4e4467bc8647
+# ╠═d9ef052a-a422-4f78-87b9-e0356bdd895a
+# ╠═b700be32-368a-4b66-be79-5eba2e0067f8
+# ╠═3ded4481-197a-4f72-bded-75b85e19459c
+# ╠═ce66830b-af68-4bf1-a16c-213cfcee82ae
+# ╠═b6dd295c-d2fd-4735-84fd-7860e8aedd2d
+# ╠═5f641ccd-a532-4e87-a343-c4ef8452b37c
+# ╠═20843160-9b1a-49e4-83d8-6633f1eb816d
+# ╠═46e19bf1-c128-45d0-a5e9-37c283709ceb
+# ╠═34e2db3e-7e1b-4760-9b56-28b2139ef5cd
+# ╠═2b74f9f3-a19f-41e1-a9f9-af0c42772d69
+# ╠═591f0da3-ca5b-4879-90df-9322890ab94f
+# ╠═3cb40b75-13de-4e6c-8cfb-220904185cf9
+# ╠═9d910969-38e2-419d-bef5-96843442c2f8
+# ╠═0b4f87e4-bc06-4b6f-8a3b-bdfd4a9e2183
+# ╠═c855ba0e-aae2-42ed-b075-18b664ca3436
+# ╠═7e489525-4761-4037-a98f-99bf8d323269
+# ╠═301188f3-5036-4c45-9d2c-56de6fa833e8
+# ╟─00000000-0000-0000-0000-000000000001
+# ╟─00000000-0000-0000-0000-000000000002
