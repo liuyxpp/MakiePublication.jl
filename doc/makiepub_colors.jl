@@ -16,33 +16,35 @@ end
 function myline()
 	x = 0:0.001:1.0
 	xs = 0:0.08:1.0
-	fig = Figure(figure_padding=(6, 12, 0, 10))
+	fig = Figure(figure_padding=(2, 16, 2, 8))
 	ax = Axis(fig, xlabel=L"x", ylabel=L"f(x)")
-	l1 = lines!(ax, x, x.^5, label=L"x^5")
-	s1 = scatter!(ax, xs, xs.^5)
-	l2 = lines!(ax, x, x.^4, label=L"x^4")
-	s2 = scatter!(ax, xs, xs.^4)
-	l3 = lines!(ax, x, x.^3, label=L"x^3")
-	s3 = scatter!(ax, xs, xs.^3)
-	l4 = lines!(ax, x, x.^2, label=L"x^2")
-	s4 = scatter!(ax, xs, xs.^2)
-	l5 = lines!(ax, x, x, label=L"x")
-	s5 = scatter!(ax, xs, xs)
-	l6 = lines!(ax, x, x.^(1/2), label=L"x^{1/2}")
-	s6 = scatter!(ax, xs, xs.^(1/2))
-	l7 = lines!(ax, x, x.^(1/3), label=L"x^{1/3}")
-	s7 = scatter!(ax, xs, xs.^(1/3))
-	l8 = lines!(ax, x, x.^(1/4), label=L"x^{1/4}")
-	s8 = scatter!(ax, xs, xs.^(1/4))
-	l9 = lines!(ax, x, x.^(1/5), label=L"x^{1/5}")
-	s9 = scatter!(ax, xs, xs.^(1/5))
-	l10 = lines!(ax, x, x.^(1/6), label=L"x^{1/6}")
-	s10 = scatter!(ax, xs, xs.^(1/6))
+
+	l1 = lines!(ax, x, x.^(5/8), label=L"x^{5/8}")
+	s1 = scatter!(ax, xs, xs.^(5/8))
+    l2 = lines!(ax, x, x.^(3/4), label=L"x^{3/4}")
+	s2 = scatter!(ax, xs, xs.^(3/4))
+    l3 = lines!(ax, x, x, label=L"x")
+	s3 = scatter!(ax, xs, xs)
+    l4 = lines!(ax, x, x.^(5/4), label=L"x^{5/4}")
+	s4 = scatter!(ax, xs, xs.^(5/4))
+    l5 = lines!(ax, x, x.^(3/2), label=L"x^{3/2}")
+	s5 = scatter!(ax, xs, xs.^(3/2))
+    l6 = lines!(ax, x, x.^2, label=L"x^2")
+	s6 = scatter!(ax, xs, xs.^2)
+    l7 = lines!(ax, x, x.^3, label=L"x^3")
+	s7 = scatter!(ax, xs, xs.^3)
+    l8 = lines!(ax, x, x.^4, label=L"x^4")
+	s8 = scatter!(ax, xs, xs.^4)
+    l9 = lines!(ax, x, x.^6, label=L"x^6")
+	s9 = scatter!(ax, xs, xs.^6)
+    l10 = lines!(ax, x, x.^8, label=L"x^8")
+	s10 = scatter!(ax, xs, xs.^8)
+
 	xlims!(0, 1)
 	ylims!(0, 1)
 
 	axislegend(ax, [[l1, s1], [l2, s2], [l3, s3], [l4, s4], [l5, s5], [l6, s6], [l7, s7], [l8, s8], [l9, s9], [l10, s10]],
-		[L"x^5", L"x^4", L"x^3", L"x^2", L"x", L"x^{1/2}", L"x^{1/3}", L"x^{1/4}", L"x^{1/5}", L"x^{1/6}"], nbanks=3, position=:lt, margin=(5,0,0,0), padding=(0,0,0,0))
+		[L"x^{5/8}", L"x^{3/4}", L"x", L"x^{5/4}", L"x^{3/2}", L"x^2", L"x^3", L"x^4", L"x^6", L"x^8"], nbanks=3, position=:lt, margin=(15,0,0,10), padding=(0,0,0,0))
 	
 	fig[1,1] = ax
 	
@@ -142,10 +144,10 @@ Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
 MakiePublication = "dde8697e-0d61-460d-88dd-856f66710dd1"
 
 [compat]
-CairoMakie = "~0.8.13"
+CairoMakie = "~0.9.0"
 ColorSchemes = "~3.19.0"
-Makie = "~0.17.13"
-MakiePublication = "~0.2.2"
+Makie = "~0.18.0"
+MakiePublication = "~0.2.3"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -154,7 +156,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.8.2"
 manifest_format = "2.0"
-project_hash = "cbfad63055e4515077444975c77becdfd2dd7667"
+project_hash = "903f75b19c1db8477b064fe84a5e58c4d32d92c6"
 
 [[deps.AbstractFFTs]]
 deps = ["ChainRulesCore", "LinearAlgebra"]
@@ -219,10 +221,10 @@ uuid = "159f3aea-2a34-519c-b102-8c37f9878175"
 version = "1.0.5"
 
 [[deps.CairoMakie]]
-deps = ["Base64", "Cairo", "Colors", "FFTW", "FileIO", "FreeType", "GeometryBasics", "LinearAlgebra", "Makie", "SHA"]
-git-tree-sha1 = "387e0102f240244102814cf73fe9fbbad82b9e9e"
+deps = ["Base64", "Cairo", "Colors", "FFTW", "FileIO", "FreeType", "GeometryBasics", "LinearAlgebra", "Makie", "SHA", "SnoopPrecompile"]
+git-tree-sha1 = "f53b586e9489163ece213144a5a6417742f0388e"
 uuid = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
-version = "0.8.13"
+version = "0.9.0"
 
 [[deps.Cairo_jll]]
 deps = ["Artifacts", "Bzip2_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "JLLWrappers", "LZO_jll", "Libdl", "Pixman_jll", "Pkg", "Xorg_libXext_jll", "Xorg_libXrender_jll", "Zlib_jll", "libpng_jll"]
@@ -435,9 +437,9 @@ version = "2.10.4+0"
 
 [[deps.FreeTypeAbstraction]]
 deps = ["ColorVectorSpace", "Colors", "FreeType", "GeometryBasics"]
-git-tree-sha1 = "b5c7fe9cea653443736d264b85466bad8c574f4a"
+git-tree-sha1 = "38a92e40157100e796690421e34a11c107205c86"
 uuid = "663a7486-cb36-511b-a19d-713bb74d65c9"
-version = "0.9.9"
+version = "0.10.0"
 
 [[deps.FriBidi_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -715,22 +717,22 @@ uuid = "856f044c-d86e-5d09-b602-aeab76dc8ba7"
 version = "2022.2.0+0"
 
 [[deps.Makie]]
-deps = ["Animations", "Base64", "ColorBrewer", "ColorSchemes", "ColorTypes", "Colors", "Contour", "Distributions", "DocStringExtensions", "FFMPEG", "FileIO", "FixedPointNumbers", "Formatting", "FreeType", "FreeTypeAbstraction", "GeometryBasics", "GridLayoutBase", "ImageIO", "IntervalSets", "Isoband", "KernelDensity", "LaTeXStrings", "LinearAlgebra", "MakieCore", "Markdown", "Match", "MathTeXEngine", "Observables", "OffsetArrays", "Packing", "PlotUtils", "PolygonOps", "Printf", "Random", "RelocatableFolders", "Serialization", "Showoff", "SignedDistanceFields", "SparseArrays", "Statistics", "StatsBase", "StatsFuns", "StructArrays", "UnicodeFun"]
-git-tree-sha1 = "b0323393a7190c9bf5b03af442fc115756df8e59"
+deps = ["Animations", "Base64", "ColorBrewer", "ColorSchemes", "ColorTypes", "Colors", "Contour", "Distributions", "DocStringExtensions", "FFMPEG", "FileIO", "FixedPointNumbers", "Formatting", "FreeType", "FreeTypeAbstraction", "GeometryBasics", "GridLayoutBase", "ImageIO", "InteractiveUtils", "IntervalSets", "Isoband", "KernelDensity", "LaTeXStrings", "LinearAlgebra", "MakieCore", "Markdown", "Match", "MathTeXEngine", "MiniQhull", "Observables", "OffsetArrays", "Packing", "PlotUtils", "PolygonOps", "Printf", "Random", "RelocatableFolders", "Serialization", "Showoff", "SignedDistanceFields", "SnoopPrecompile", "SparseArrays", "Statistics", "StatsBase", "StatsFuns", "StructArrays", "TriplotBase", "UnicodeFun"]
+git-tree-sha1 = "51e40869d076fbff25ab61d0aa3e198d80176c75"
 uuid = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
-version = "0.17.13"
+version = "0.18.0"
 
 [[deps.MakieCore]]
 deps = ["Observables"]
-git-tree-sha1 = "fbf705d2bdea8fc93f1ae8ca2965d8e03d4ca98c"
+git-tree-sha1 = "b87650f61f85fc2d4fb5923a479dbf05ba65ae4d"
 uuid = "20f20a25-4f0e-4fdf-b5d1-57303727442b"
-version = "0.4.0"
+version = "0.5.0"
 
 [[deps.MakiePublication]]
-deps = ["CairoMakie", "ColorSchemes"]
-git-tree-sha1 = "43397c9afc58942824fce6e596d6773ec44ce4f1"
+deps = ["CairoMakie", "ColorSchemes", "Makie"]
+git-tree-sha1 = "d5d2724b2d68b24399be82c0f15283ade7b42452"
 uuid = "dde8697e-0d61-460d-88dd-856f66710dd1"
-version = "0.2.2"
+version = "0.2.3"
 
 [[deps.MappedArrays]]
 git-tree-sha1 = "e8b359ef06ec72e8c030463fe02efe5527ee5142"
@@ -747,15 +749,21 @@ uuid = "7eb4fadd-790c-5f42-8a69-bfa0b872bfbf"
 version = "1.2.0"
 
 [[deps.MathTeXEngine]]
-deps = ["AbstractTrees", "Automa", "DataStructures", "FreeTypeAbstraction", "GeometryBasics", "LaTeXStrings", "REPL", "RelocatableFolders", "Test"]
-git-tree-sha1 = "114ef48a73aea632b8aebcb84f796afcc510ac7c"
+deps = ["AbstractTrees", "Automa", "DataStructures", "FreeTypeAbstraction", "GeometryBasics", "LaTeXStrings", "REPL", "RelocatableFolders", "Test", "UnicodeFun"]
+git-tree-sha1 = "03d7e6e449f2c53907016a2e858d6f6139e68cff"
 uuid = "0a4f8689-d25c-4efe-a92b-7142dfc1aa53"
-version = "0.4.3"
+version = "0.5.2"
 
 [[deps.MbedTLS_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
 version = "2.28.0+0"
+
+[[deps.MiniQhull]]
+deps = ["QhullMiniWrapper_jll"]
+git-tree-sha1 = "9dc837d180ee49eeb7c8b77bb1c860452634b0d1"
+uuid = "978d7f02-9e05-4691-894f-ae31a51d76ca"
+version = "0.4.0"
 
 [[deps.Missings]]
 deps = ["DataAPI"]
@@ -945,6 +953,18 @@ git-tree-sha1 = "18e8f4d1426e965c7b532ddd260599e1510d26ce"
 uuid = "4b34888f-f399-49d4-9bb3-47ed5cae4e65"
 version = "1.0.0"
 
+[[deps.QhullMiniWrapper_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg", "Qhull_jll"]
+git-tree-sha1 = "607cf73c03f8a9f83b36db0b86a3a9c14179621f"
+uuid = "460c41e3-6112-5d7f-b78c-b6823adb3f2d"
+version = "1.0.0+1"
+
+[[deps.Qhull_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
+git-tree-sha1 = "695c3049ad94fa38b7f1e8243cdcee27ecad0867"
+uuid = "784f63db-0788-585a-bace-daefebcd302b"
+version = "8.0.1000+0"
+
 [[deps.QuadGK]]
 deps = ["DataStructures", "LinearAlgebra"]
 git-tree-sha1 = "3c009334f45dfd546a16a57960a821a1a023d241"
@@ -972,9 +992,9 @@ version = "1.2.2"
 
 [[deps.RelocatableFolders]]
 deps = ["SHA", "Scratch"]
-git-tree-sha1 = "22c5201127d7b243b9ee1de3b43c408879dff60f"
+git-tree-sha1 = "90bc7a7c96410424509e4263e277e43250c05691"
 uuid = "05181044-ff0b-4ac5-8273-598c1e38db00"
-version = "0.3.0"
+version = "1.0.0"
 
 [[deps.Requires]]
 deps = ["UUIDs"]
@@ -1156,6 +1176,11 @@ deps = ["Random", "Test"]
 git-tree-sha1 = "8a75929dcd3c38611db2f8d08546decb514fcadf"
 uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
 version = "0.9.9"
+
+[[deps.TriplotBase]]
+git-tree-sha1 = "4d4ed7f294cda19382ff7de4c137d24d16adc89b"
+uuid = "981d1d27-644d-49a2-9326-4793e63143c3"
+version = "0.1.0"
 
 [[deps.UUIDs]]
 deps = ["Random", "SHA"]
