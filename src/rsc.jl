@@ -5,7 +5,7 @@ Generate Makie theme for producing figures for RSC (Royal Society of Chemistry).
 """
 function theme_rsc(;
                    width=3.26,
-                   colors=COLORS,
+                   colors=COLORS[1],
                    markers=MARKERS,
                    cycle=CYCLE,
                    )

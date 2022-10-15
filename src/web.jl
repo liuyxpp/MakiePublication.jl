@@ -5,7 +5,7 @@ Generate Makie theme for producing figures for web publishing. Save the figure u
 """
 function theme_web(;
                    width=600,
-                   colors=COLORS,
+                   colors=COLORS[1],
                    markers=MARKERS,
                    cycle=CYCLE,
                    )

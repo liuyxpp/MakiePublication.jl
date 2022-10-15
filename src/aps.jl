@@ -5,7 +5,7 @@ Generate Makie theme for producing figures for APS (American Physical Society). 
 """
 function theme_aps(;
                    width=3.25,
-                   colors=COLORS,
+                   colors=COLORS[1],
                    markers=MARKERS,
                    cycle=CYCLE,
                    )

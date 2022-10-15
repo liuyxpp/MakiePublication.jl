@@ -5,7 +5,7 @@ Generate Makie theme for producing figures for ACS (American Chemical Society). 
 """
 function theme_acs(;
                    width=3.25,
-                   colors=COLORS,
+                   colors=COLORS[1],
                    markers=MARKERS,
                    cycle=CYCLE,
                    )
