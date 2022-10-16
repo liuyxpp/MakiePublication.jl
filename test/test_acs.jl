@@ -42,6 +42,8 @@ function myplot()
 	return fig
 end
 
-fig = with_theme(myplot, theme_acs(colors=MP.seaborn_deep()));
-savefig("acs_seaborn_deep.eps", fig)
-savefig("acs_seaborn_deep.svg", fig)
+lc = Cycle([:color, :linestyle], covary=true)
+sc = Cycle([:color=>:markercolor, :strokecolor=>:color, :marker], covary=true)
+fig = with_theme(myplot, theme_acs(linecycle=lc, scattercycle=sc, linestyles=[nothing, :dash], ishollowmarkers=[false, true]));
+savefig("acs.eps", fig)
+savefig("acs.svg", fig)

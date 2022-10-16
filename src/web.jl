@@ -1,23 +1,61 @@
 """
     theme_web(width=600, colors=COLORS, markers=MARDERS, cycle=CYCLE)
 
-Generate Makie theme for producing figures for web publishing. Save the figure using `save("path_to_figure.png", fig)`.
+Generate Makie theme for producing figures for web publishing.
+
+Save the figure using `save("path_to_figure.svg", fig)` or `save("path_to_figure.png", fig)`.
 """
 function theme_web(;
                    width=600,
                    colors=COLORS[1],
                    linestyles=LINESTYLES,
                    markers=MARKERS,
+                   ishollowmarkers=nothing,  # a list of true, false values.
+                   palette=nothing,
                    cycle=CYCLE,
                    linecycle=nothing,
                    scattercycle=nothing,
                    markerstrokewidth=0,  # change to linewidth to make hollo markers.
                    )
     colors = isnothing(colors) ? COLORS : colors
+    n = length(colors)
+    # if no hollow markers specified, the length is 1, and its value is false.
+    m = isnothing(ishollowmarkers) ? 1 : length(ishollowmarkers)
     linestyles = isnothing(linestyles) ? LINESTYLES : linestyles
     markers = isnothing(colors) ? MARKERS : markers
+    # full cycle is of length n * m
+    ishollowmarkers = isnothing(ishollowmarkers) ? fill(false, n) : repeat(ishollowmarkers, n)
     linecycle = isnothing(linecycle) ? cycle : linecycle
     scattercycle = isnothing(scattercycle) ? cycle : scattercycle
+    # covary for hollow markers with color
+    covary = scattercycle isa Cycle ? scattercycle.covary : false
+    markercolors = repeat(colors, m)
+    transparent = RGBAf(1.0, 1.0, 1.0, 0.0)
+    # Making hollow markers by setting the marker face color to transparent
+    if covary
+        for i in eachindex(markercolors)
+            ishollowmarkers[i] && (markercolors[i] = transparent)
+        end
+    else
+        N = 0
+        for ishollow in ishollowmarkers
+            for i in 1:n
+                ishollow && (markercolors[i+N] = transparent)
+            end
+            N += n
+        end
+    end
+    # if has hollow markers, ensure markerstrokewidth > 0 by using a default value 1.0 which is 2/3 of the defautl Makie linewidth to make sure the hollow is visible.
+    # if user change the linewidth, he/she must change the markerstrokewidth accordingly by supplying the keyword argument.
+    hashollow = sum(ishollowmarkers) > 0
+    if hashollow  # has hollow markers
+        # this will override the default markerstrokewidth, even it is 0.
+        markerstrokewidth = markerstrokewidth > 0 ? markerstrokewidth : 1.0
+    else
+        markerstrokewidth = 0
+    end
+    # Adjust marker size according to whether has hollow markers
+    markersize = hashollow ? 12 - markerstrokewidth : 12
 
     axis_theme = (
         # xlabelsize=10,
@@ -55,7 +93,7 @@ function theme_web(;
 
     scatter_theme = (
         cycle=scattercycle,
-        # markersize=7,
+        markersize=markersize,  # Makie default is 12
         strokewidth=markerstrokewidth,
     )
 
@@ -71,18 +109,21 @@ function theme_web(;
         # colgap=4,
     )
 
-    tcolors = deepcopy(colors)
-    tcolors[2:2:end] .= one(eltype(wong(0)))
-    tcolors = [tcolors..., tcolors..., tcolors...]
-    pal = (color=colors, transparent=tcolors, linestyle=linestyles, marker=markers)
+    pal = (color=colors,
+           markercolor=markercolors,
+           linestyle=linestyles,
+           marker=markers,
+           )
+    palette = isnothing(palette) ? pal : palette
 
     return Theme(#figure_padding=0,
                  resolution=(width, width*HWRATIO),
                  # font="Helvetica",
-                 palette=pal,
+                 palette=palette,
                  Axis=axis_theme,
                  Lines=line_theme,
                  Scatter=scatter_theme,
-                 Legend=legend_theme,)
+                 Legend=legend_theme,
+                 )
 end
 
