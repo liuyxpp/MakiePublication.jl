@@ -6,9 +6,19 @@ Generate Makie theme for producing figures for web publishing. Save the figure u
 function theme_web(;
                    width=600,
                    colors=COLORS[1],
+                   linestyles=LINESTYLES,
                    markers=MARKERS,
                    cycle=CYCLE,
+                   linecycle=nothing,
+                   scattercycle=nothing,
+                   markerstrokewidth=0,  # change to linewidth to make hollo markers.
                    )
+    colors = isnothing(colors) ? COLORS : colors
+    linestyles = isnothing(linestyles) ? LINESTYLES : linestyles
+    markers = isnothing(colors) ? MARKERS : markers
+    linecycle = isnothing(linecycle) ? cycle : linecycle
+    scattercycle = isnothing(scattercycle) ? cycle : scattercycle
+
     axis_theme = (
         # xlabelsize=10,
         # ylabelsize=10,
@@ -38,9 +48,15 @@ function theme_web(;
         # ylabelpadding=2,
     )
 
+    line_theme = (
+        cycle=linecycle,
+        # linewidth=1.5,  # Makie default is 1.5
+    )
+
     scatter_theme = (
-        cycle=cycle,
+        cycle=scattercycle,
         # markersize=7,
+        strokewidth=markerstrokewidth,
     )
 
     legend_theme = (
@@ -55,13 +71,17 @@ function theme_web(;
         # colgap=4,
     )
 
-    pal = isnothing(markers) ? (color=colors,) : (color=colors, marker=markers)
+    tcolors = deepcopy(colors)
+    tcolors[2:2:end] .= one(eltype(wong(0)))
+    tcolors = [tcolors..., tcolors..., tcolors...]
+    pal = (color=colors, transparent=tcolors, linestyle=linestyles, marker=markers)
 
     return Theme(#figure_padding=0,
                  resolution=(width, width*HWRATIO),
                  # font="Helvetica",
                  palette=pal,
                  Axis=axis_theme,
+                 Lines=line_theme,
                  Scatter=scatter_theme,
                  Legend=legend_theme,)
 end

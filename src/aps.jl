@@ -6,6 +6,7 @@ Generate Makie theme for producing figures for APS (American Physical Society). 
 function theme_aps(;
                    width=3.375,
                    colors=COLORS[1],
+                   linestyles= LINESTYLES,
                    markers=MARKERS,
                    cycle=CYCLE,
                    )
@@ -38,6 +39,11 @@ function theme_aps(;
         ylabelpadding=2,
     )
 
+    line_theme = (
+        cycle=cycle,
+        # linewidth=1.5,  # Makie default is 1.5
+    )
+
     scatter_theme = (
         cycle=cycle,
         markersize=7,
@@ -55,13 +61,17 @@ function theme_aps(;
         colgap=4,
     )
 
-    pal = isnothing(markers) ? (color=colors,) : (color=colors, marker=markers)
+    colors = isnothing(colors) ? COLORS : colors
+    linestyles = isnothing(linestyles) ? LINESTYLES : linestyles
+    markers = isnothing(colors) ? MARKERS : markers
+    pal = (color=colors, linestyle=linestyles, marker=markers)
 
     return Theme(figure_padding=0,
                  resolution=figsize(width),
                  # font="Helvetica",
                  palette=pal,
                  Axis=axis_theme,
+                 Lines=line_theme,
                  Scatter=scatter_theme,
                  Legend=legend_theme,)
 end
