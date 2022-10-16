@@ -24,7 +24,8 @@ function theme_acs(;
     linestyles = isnothing(linestyles) ? LINESTYLES : linestyles
     markers = isnothing(colors) ? MARKERS : markers
     # full cycle is of length n * m
-    ishollowmarkers = isnothing(ishollowmarkers) ? fill(false, n) : repeat(ishollowmarkers, n)
+    ishollowmarkers_org = isnothing(ishollowmarkers) ? [false] : ishollowmarkers
+    ishollowmarkers = repeat(ishollowmarkers_org, n)
     linecycle = isnothing(linecycle) ? cycle : linecycle
     scattercycle = isnothing(scattercycle) ? cycle : scattercycle
     # covary for hollow markers with color
@@ -38,7 +39,7 @@ function theme_acs(;
         end
     else
         N = 0
-        for ishollow in ishollowmarkers
+        for ishollow in ishollowmarkers_org
             for i in 1:n
                 ishollow && (markercolors[i+N] = transparent)
             end
