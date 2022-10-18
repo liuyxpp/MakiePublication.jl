@@ -4,6 +4,8 @@
 
 **MakiePublication.jl** is a Julia package for producing publication quality figures based on [Makie.jl](https://github.com/JuliaPlots/Makie.jl). It aims to provide an equivalent functionalities as the Python package [mpltex](https://github.com/liuyxpp/mpltex).
 
+Read the [full documentation here](http://www.yxliu.group/MakiePublication.jl/dev/).
+
 ## Features
 
 * Provide a collection of custom themes for journal publishers: ACS, APS, RSC.
@@ -85,6 +87,10 @@ The demonstration of available color palettes can be found in the Pluto notebook
 - `theme_rsc` for Royal Society of Chemistry (RSC)
 
 ![RSC](docs/src/figures/rsc.svg)
+
+## Documentation
+
+The [full documentation](http://www.yxliu.group/MakiePublication.jl/dev/) is available [here](http://www.yxliu.group/MakiePublication.jl/dev/).
 
 ## Contribute
 
