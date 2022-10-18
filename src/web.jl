@@ -1,9 +1,9 @@
 """
     theme_web(width=600, colors=COLORS, markers=MARDERS, cycle=CYCLE)
 
-Generate Makie theme for producing figures for web publishing.
+Generate Makie theme for producing figures for web publishing. The usage is the same as [`theme_acs`](@ref) except figure `width` which following the guideline of the Makie default.
 
-Save the figure using `save("path_to_figure.svg", fig)` or `save("path_to_figure.png", fig)`.
+See also [`theme_acs`](@ref), [`theme_aps`](@ref), and [`theme_rsc`](@ref).
 """
 function theme_web(;
                    width=600,

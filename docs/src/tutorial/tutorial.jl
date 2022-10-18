@@ -40,6 +40,9 @@ with_theme(theme_web()) do
 	current_figure()
 end
 
+# ╔═╡ 8536d611-97c7-4609-afa6-841b51e3d044
+# savefig("simple.svg", current_figure())
+
 # ╔═╡ 7ca1c688-a960-453a-be87-1a010647ac90
 md"""
 Compared to the Makie default theme:
@@ -51,6 +54,9 @@ let
 	lines!(0..10, cos)
 	current_figure()
 end
+
+# ╔═╡ 8a8c28b2-674d-45ef-bb70-ed0470dba4a5
+# savefig("simple_makie.svg", current_figure())
 
 # ╔═╡ 2df32fce-52f9-495f-9d4a-ddddaa79e1e1
 md"""
@@ -116,6 +122,9 @@ The default looking by CairoMakie
 # ╔═╡ 5b508e70-8921-407f-8e19-9cd2a3c22e80
 myplot_web()
 
+# ╔═╡ 832d8f60-7454-43dd-9d26-53c2e488b748
+# savefig("complicated_makie.svg", current_figure())
+
 # ╔═╡ 8e751ba0-0637-453f-8a38-63cbc331df5a
 md"""
 Theming it by MakiePublication Web theme. Notable changes:
@@ -131,6 +140,9 @@ Theming it by MakiePublication Web theme. Notable changes:
 
 # ╔═╡ 57ece2db-0068-4d82-8391-ddffefbde28b
 with_theme(myplot_web, theme_web())
+
+# ╔═╡ aa19e33e-f1fd-47c3-9ff7-43119736a4cc
+savefig("complicated.svg", current_figure())
 
 # ╔═╡ 81f7dc00-0fef-44bd-b9b1-9e602a39990f
 md"""
@@ -154,6 +166,9 @@ with_theme(myplot, theme_web(colors=MakiePublication.tol_bright()))
 # ╔═╡ 372077d2-e2d6-49db-b504-776afea5cef9
 with_theme(myplot_web, theme_web(colors=MakiePublication.tol_bright()))
 
+# ╔═╡ 373de1b2-3e2f-4eea-9876-0eee1cecffef
+# savefig("color.svg", current_figure())
+
 # ╔═╡ 56fbceb9-0e9f-4a1f-ade9-8517c334f493
 md"""
 ## Line styles
@@ -172,9 +187,12 @@ let
 	with_theme(myplot_web, theme_web(linecycle=lc, linestyles=[nothing, :dash]))
 end
 
+# ╔═╡ 874f1e9c-2f99-4eb6-9b21-0e907da2662f
+savefig("linestyle.svg", current_figure())
+
 # ╔═╡ d97758f1-f9f9-4cc3-b821-158b1e251c97
 md"""
-## Makers
+## Markers
 
 By default, the markers are given by `MakiePublication.MARKERS`. You can overwrite it with `makers` keyword of `theme_*` methods.
 """
@@ -182,6 +200,9 @@ By default, the markers are given by `MakiePublication.MARKERS`. You can overwri
 # ╔═╡ 2c1179a5-d874-4339-b20a-395819df8573
 # Only circle and diamond markers are cycled.
 with_theme(myplot_web, theme_web(markers=[:circle, :diamond]))
+
+# ╔═╡ fb2ff79b-dd15-4eba-b775-6afe26e81f58
+savefig("marker.svg", current_figure())
 
 # ╔═╡ 2dfc73ac-57c3-4eea-b347-5c0394ce28e4
 md"""
@@ -214,6 +235,9 @@ let
 	with_theme(myplot_web, theme_web(scattercycle=sc, ishollowmarkers=[false, true], markerstrokewidth=1.5))
 end
 
+# ╔═╡ 852f0d9c-1085-40f2-ab87-4c5353687da6
+# savefig("hollow.svg", current_figure())
+
 # ╔═╡ 459355ff-8156-4b49-844d-62dbb6443b30
 md"""
 Note that currently, when `covary` is false, the maker stroke color will stay unchanged when the marker is not hollow, which may not match its face color.
@@ -241,6 +265,9 @@ let
 			markerstrokewidth=1.5)
 	)
 end
+
+# ╔═╡ b3dc63a9-facf-4b9d-9e4f-028fb1912ebc
+# savefig("cycler.svg", current_figure())
 
 # ╔═╡ ab71ebf0-a9d9-4156-94bc-eb8e8dcaba9f
 md"""
@@ -1472,27 +1499,36 @@ version = "3.5.0+0"
 # ╟─4a1d4c5d-b44f-49e8-a526-2d473a417e55
 # ╠═0da325a8-d6f6-4963-8562-9b7847878c07
 # ╟─7ae40f10-c06b-4708-b1f1-dc32757fa3d3
-# ╟─3b2fd71a-327e-467a-b0c6-93f11a6954d8
+# ╠═3b2fd71a-327e-467a-b0c6-93f11a6954d8
+# ╟─8536d611-97c7-4609-afa6-841b51e3d044
 # ╟─7ca1c688-a960-453a-be87-1a010647ac90
 # ╠═9e402bea-849e-438d-82d9-1aa6cc18243d
+# ╟─8a8c28b2-674d-45ef-bb70-ed0470dba4a5
 # ╟─2df32fce-52f9-495f-9d4a-ddddaa79e1e1
 # ╠═30b0601e-63b9-4986-a311-9685560b55ef
 # ╠═9ebf7a77-d9ce-43a3-b48d-ed7ef5f8950b
 # ╟─fa12a8ed-08f9-4e1b-892d-ffda1fa7dde8
 # ╠═5b508e70-8921-407f-8e19-9cd2a3c22e80
+# ╟─832d8f60-7454-43dd-9d26-53c2e488b748
 # ╟─8e751ba0-0637-453f-8a38-63cbc331df5a
 # ╠═57ece2db-0068-4d82-8391-ddffefbde28b
+# ╠═aa19e33e-f1fd-47c3-9ff7-43119736a4cc
 # ╟─81f7dc00-0fef-44bd-b9b1-9e602a39990f
 # ╠═372077d2-e2d6-49db-b504-776afea5cef9
+# ╟─373de1b2-3e2f-4eea-9876-0eee1cecffef
 # ╟─56fbceb9-0e9f-4a1f-ade9-8517c334f493
 # ╠═cb648b46-9fb5-4efb-a9d8-dcebb4b3f5ec
-# ╟─d97758f1-f9f9-4cc3-b821-158b1e251c97
+# ╟─874f1e9c-2f99-4eb6-9b21-0e907da2662f
+# ╠═d97758f1-f9f9-4cc3-b821-158b1e251c97
 # ╠═2c1179a5-d874-4339-b20a-395819df8573
+# ╟─fb2ff79b-dd15-4eba-b775-6afe26e81f58
 # ╟─2dfc73ac-57c3-4eea-b347-5c0394ce28e4
 # ╠═c7fc75f0-c189-48e0-882d-04003d1c9ef2
+# ╟─852f0d9c-1085-40f2-ab87-4c5353687da6
 # ╟─459355ff-8156-4b49-844d-62dbb6443b30
 # ╟─9f917057-395b-44d8-88ba-f6c6022da2bf
 # ╠═4aaafe63-7ea4-4992-9d18-eb886e966816
+# ╟─b3dc63a9-facf-4b9d-9e4f-028fb1912ebc
 # ╟─ab71ebf0-a9d9-4156-94bc-eb8e8dcaba9f
 # ╠═1a2bf02e-170b-478c-8c33-8529a7832e2e
 # ╟─73f41134-b9d8-48bd-9b58-ea90b7852a43

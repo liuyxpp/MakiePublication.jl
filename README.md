@@ -1,6 +1,6 @@
 # MakiePublication.jl
 
-![APS](docs/figures/banner/banner.svg)
+![APS](docs/src/figures/banner/banner.svg)
 
 **MakiePublication.jl** is a Julia package for producing publication quality figures based on [Makie.jl](https://github.com/JuliaPlots/Makie.jl). It aims to provide an equivalent functionalities as the Python package [mpltex](https://github.com/liuyxpp/mpltex).
 
@@ -76,15 +76,15 @@ The demonstration of available color palettes can be found in the Pluto notebook
 
 - `theme_acs` for American Chemical Society (ACS)
 
-![ACS](docs/figures/acs.svg)
+![ACS](docs/src/figures/acs.svg)
 
 - `theme_aps` for American Physical Society (APS) and American Institute of Physics (AIP)
 
-![APS](docs/figures/aps.svg)
+![APS](docs/src/figures/aps.svg)
 
 - `theme_rsc` for Royal Society of Chemistry (RSC)
 
-![RSC](docs/figures/rsc.svg)
+![RSC](docs/src/figures/rsc.svg)
 
 ## Contribute
 
@@ -92,8 +92,3 @@ The demonstration of available color palettes can be found in the Pluto notebook
 * File an issue or make a pull request on [github.com](https://github.com/liuyxpp/MakiePublication.jl).
 * Pull requests of new schemes for other publishers are highly appreciated.
 * Contact the author via email <lyx@fudan.edu.cn>.
-
-## Links
-
-* [Source code](https://github.com/liuyxpp/MakiePublication.jl)
-* [Tutorial in Pluto notebook](https://github.com/liuyxpp/MakiePublication.jl/blob/master/docs/tutorial.jl.html)

@@ -1,0 +1,6 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+MakiePublication = "dde8697e-0d61-460d-88dd-856f66710dd1"
+
+[compat]
+Documenter = "0.27"

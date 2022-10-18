@@ -1,29 +1,53 @@
+@doc raw"""
+    alpharize(alpha, colors)
+
+Add a alpha value to RGB `colors` or modify the alpha channel value of RGBA `colors`.
+"""
 alpharize(a, colors) = @. RGBAf(red(colors), green(colors), blue(colors), a)
 
+"Color palette: seaborn_deep"
 seaborn_deep(alpha=1.0) = alpharize(alpha, ColorSchemes.seaborn_deep.colors)
+
+"Color palette: seaborn_dark"
 seaborn_dark(alpha=1.0) = alpharize(alpha, ColorSchemes.seaborn_dark.colors)
+
+"Color palette: seaborn_bright"
 seaborn_bright(alpha=1.0) = alpharize(alpha, ColorSchemes.seaborn_bright.colors)
+
+"Color palette: seaborn_muted"
 seaborn_muted(alpha=1.0) = alpharize(alpha, ColorSchemes.seaborn_muted.colors)
+
+"Color palette: seaborn_colorblind"
 seaborn_colorblind(alpha=1.0) = alpharize(alpha, ColorSchemes.seaborn_colorblind.colors)
 
+"Color palette: tab10"
 tab10(alpha=1.0) = alpharize(alpha, ColorSchemes.tab10.colors)
 
+"Color palette: tableau_10"
 tableau_10(alpha=1.0) = alpharize(alpha, ColorSchemes.tableau_10.colors[[1, 2, 5, 3, 7, 9, 8, 10, 6, 4]])
 
+"Color palette: tableau_superfishel_stone"
 tableau_superfishel_stone(alpha=1.0) = alpharize(alpha, ColorSchemes.tableau_superfishel_stone.colors[[1, 2, 5, 3, 7, 8, 10, 9, 6, 4]])
 
+"Color palette: wong"
 wong(alpha=1.0) = Makie.wong_colors(alpha)[[1, 2, 3, 6, 4, 5, 7]]
 
+"Color palette: tol_bright"
 tol_bright(alpha=1.0) = alpharize(alpha, ColorSchemes.tol_bright.colors[[3, 4, 2, 1, 6, 7, 5]])
 
+"Color palette: okabe_ito"
 okabe_ito(alpha=1.0) = alpharize(alpha, ColorSchemes.okabe_ito.colors[[5, 1, 3, 6, 7, 8, 4, 2]])
 
+"Color palette: mk_8"
 mk_8(alpha=1.0) = alpharize(alpha, ColorSchemes.mk_8.colors[[2, 7, 5, 6, 4, 1, 8, 3]])
 
+"Color palette: dark2_8"
 dark2_8(alpha=1.0) = alpharize(alpha, ColorSchemes.Dark2_8.colors[[1, 6, 5, 2, 3, 7, 4, 8]])
 
+"Color palette: set1_8"
 set1_8(alpha=1.0) = alpharize(alpha, ColorSchemes.Set1_8.colors[[2, 5, 3, 1, 4, 7, 8, 6]])
 
+"Color palette: glasbey_hv_n256"
 glasbey_hv_n256(alpha=1.0) = alpharize(alpha, ColorSchemes.glasbey_hv_n256.colors[[9, 3, 4, 8, 7, 2, 10, 5, 1, 6]])
 
 const COLORS = [seaborn_deep(),  # 10 colors
