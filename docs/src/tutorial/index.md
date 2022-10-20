@@ -150,7 +150,7 @@ which produces
 
 ## Markers
 
-By default, the markers are given by `MakiePublication.MARKERS`. You can overwrite it with `makers` keyword of `theme_*` methods.
+By default, the markers are given by `MakiePublication.MARKERS`. You can overwrite it with `markers` keyword of `theme_*` methods.
 
 ```julia
 # Only circle and diamond markers are cycled.

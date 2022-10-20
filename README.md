@@ -2,7 +2,7 @@
 
 ![APS](docs/src/figures/banner/banner.svg)
 
-**MakiePublication.jl** is a Julia package for producing publication quality figures based on [Makie.jl](https://github.com/JuliaPlots/Makie.jl). It aims to provide an equivalent functionalities as the Python package [mpltex](https://github.com/liuyxpp/mpltex).
+**MakiePublication.jl** is a Julia package for producing publication quality figures based on [Makie.jl](https://github.com/JuliaPlots/Makie.jl). It aims to provide equivalent functionalities as the Python package [mpltex](https://github.com/liuyxpp/mpltex).
 
 Read the [full documentation here](http://www.yxliu.group/MakiePublication.jl/dev/).
 
@@ -54,9 +54,7 @@ end
 with_theme(myplot, theme_web())
 ```
 
-Sample figures can be found in the `doc` folder.
-
-Please see the Pluto notebook `doc/tutorial.jl.html` for a detailed demonstration of this package.
+Check out the [documentation](http://www.yxliu.group/MakiePublication.jl/dev/) for more details.
 
 ## Colors
 
@@ -75,6 +73,8 @@ with_theme(myplot, theme_web(colors=MakiePublication.tol_bright()))
 The demonstration of available color palettes can be found in the Pluto notebook `doc/makiepub_colors.jl.html`.
 
 ## Showcase of Themes
+
+Note that all MakiePublication themes for journal publishers are essentially the same except the physical size of the figure. Hence following figures only different in the image sizes.
 
 - `theme_acs` for American Chemical Society (ACS)
 

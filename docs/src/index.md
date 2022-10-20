@@ -2,7 +2,7 @@
 
 ![APS](figures/banner/banner.svg)
 
-**MakiePublication.jl** is a Julia package for producing publication quality figures based on [Makie.jl](https://github.com/JuliaPlots/Makie.jl). It aims to provide an equivalent functionalities as the Python package [mpltex](https://github.com/liuyxpp/mpltex).
+**MakiePublication.jl** is a Julia package for producing publication quality figures based on [Makie.jl](https://github.com/JuliaPlots/Makie.jl). It aims to provide equivalent functionalities as the Python package [mpltex](https://github.com/liuyxpp/mpltex).
 
 ## Features
 
@@ -23,6 +23,8 @@ julia> # Press the key "]"
 
 ## Showcase of Themes
 
+Note that all MakiePublication themes for journal publishers are essentially the same except the physical size of the figure. Hence following figures only different in the image sizes.
+
 - `theme_acs` for American Chemical Society (ACS)
 
 ![ACS theme](figures/acs.svg)
@@ -38,8 +40,6 @@ julia> # Press the key "]"
 - `theme_web` for web presentation.
 
 ![Web theme](tutorial/complicated.svg)
-
-Note the difference in the image size.
 
 ## Contribute
 
