@@ -1,7 +1,7 @@
 name = "MakiePublication"
 uuid = "dde8697e-0d61-460d-88dd-856f66710dd1"
 authors = ["Yi-Xin Liu <lyx@fudan.edu.cn>"]
-version = "0.3.1"
+version = "0.3.2"
 
 [deps]
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
@@ -10,8 +10,8 @@ Colors = "5ae59095-9a9b-59fe-a467-6f913c188581"
 Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
 
 [compat]
-CairoMakie = "0.9"
+CairoMakie = "0.9, 0.10"
 ColorSchemes = "3.14"
 Colors = "0.12"
-Makie = "0.18"
-julia = "1.5"
+Makie = "0.18, 0.19"
+julia = "1.6"
