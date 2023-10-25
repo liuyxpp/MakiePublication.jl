@@ -163,6 +163,8 @@ function theme_acs(;
 
     theme_args = (figure_padding=0,
         resolution=figsize(width, heightwidthratio),
+        colgap=8,
+        rowgap=8,
         # font="Helvetica",
         palette=palette,
         Axis=axis_theme,
