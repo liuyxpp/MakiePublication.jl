@@ -105,6 +105,26 @@ function theme_acs(;
         ylabelpadding=2,
     )
 
+    polar_axis_theme = (
+        spinewidth=1.1,
+    )
+
+    colorbar_theme = (
+        spinewidth=1.1,
+        labelsize=10,
+        tickalign=1,
+        ticksize=5,
+        minorticksize=3,
+        minortickalign=1,
+        ticklabelpad=2,
+        size=8,
+        tickwidth=0.8,
+        minortickwidth=0.75,
+        minorticksvisible=true,
+        ticklabelsize=8,
+        labelpadding=2,
+    )
+
     line_theme = (
         cycle=linecycle,
         # linewidth=1.5,  # Makie default is 1.5
@@ -132,6 +152,7 @@ function theme_acs(;
         markercolor=markercolors,
         linestyle=linestyles,
         marker=markers,
+        patchcolor=colors
     )
     palette = isnothing(palette) ? pal : palette
 
@@ -145,9 +166,12 @@ function theme_acs(;
         # font="Helvetica",
         palette=palette,
         Axis=axis_theme,
+        PolarAxis=polar_axis_theme,
         Lines=line_theme,
         Scatter=scatter_theme,
-        Legend=legend_theme,)
+        Legend=legend_theme,
+        Colorbar=colorbar_theme,
+        markersize=markersize)
     if usetexfont
         return Theme(; theme_args..., fonts=fonts)
     else
