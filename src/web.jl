@@ -115,6 +115,7 @@ function theme_web(;
         markercolor=markercolors,
         linestyle=linestyles,
         marker=markers,
+        patchcolor=colors
     )
     palette = isnothing(palette) ? pal : palette
 
