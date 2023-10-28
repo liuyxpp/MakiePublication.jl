@@ -6,17 +6,18 @@ Generate Makie theme for producing figures for web publishing. The usage is the 
 See also [`theme_acs`](@ref), [`theme_aps`](@ref), and [`theme_rsc`](@ref).
 """
 function theme_web(;
-                   width=600,
-                   colors=COLORS[1],
-                   linestyles=LINESTYLES,
-                   markers=MARKERS,
-                   ishollowmarkers=nothing,  # a list of true, false values.
-                   palette=nothing,
-                   cycle=CYCLE,
-                   linecycle=nothing,
-                   scattercycle=nothing,
-                   markerstrokewidth=0,  # change to linewidth to make hollo markers.
-                   )
+    width=600,
+    colors=COLORS[1],
+    linestyles=LINESTYLES,
+    markers=MARKERS,
+    ishollowmarkers=nothing,  # a list of true, false values.
+    palette=nothing,
+    cycle=CYCLE,
+    linecycle=nothing,
+    scattercycle=nothing,
+    markerstrokewidth=0,  # change to linewidth to make hollo markers.
+    heightwidthratio=HWRATIO
+)
     colors = isnothing(colors) ? COLORS : colors
     n = length(colors)
     # if no hollow markers specified, the length is 1, and its value is false.
@@ -111,20 +112,21 @@ function theme_web(;
     )
 
     pal = (color=colors,
-           markercolor=markercolors,
-           linestyle=linestyles,
-           marker=markers,
-           )
+        markercolor=markercolors,
+        linestyle=linestyles,
+        marker=markers,
+        patchcolor=colors
+    )
     palette = isnothing(palette) ? pal : palette
 
     return Theme(#figure_padding=0,
-                 resolution=(width, width*HWRATIO),
-                 # font="Helvetica",
-                 palette=palette,
-                 Axis=axis_theme,
-                 Lines=line_theme,
-                 Scatter=scatter_theme,
-                 Legend=legend_theme,
-                 )
+        resolution=(width, width * heightwidthratio),
+        # font="Helvetica",
+        palette=palette,
+        Axis=axis_theme,
+        Lines=line_theme,
+        Scatter=scatter_theme,
+        Legend=legend_theme,
+    )
 end
 
