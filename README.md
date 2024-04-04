@@ -8,7 +8,7 @@ Read the [full documentation here](http://www.yxliu.group/MakiePublication.jl/de
 
 ## Features
 
-* Provide a collection of custom themes for journal publishers: ACS, APS, RSC.
+* Provide a collection of custom themes for journal publishers (ACS, APS, RSC) and some individual journals (JCAP, JHEP).
 * Custom theme for making figures suitable for web pages.
 * 15 color palettes based on well-known quality color schemes with special tweaked ordering for scientific publishing. (since v0.3.0)
 * Support hollow markers. (since v0.3.1)
@@ -74,7 +74,7 @@ The demonstration of available color palettes can be found in the Pluto notebook
 
 ## Showcase of Themes
 
-Note that all MakiePublication themes for journal publishers are essentially the same except the physical size of the figure. Hence following figures only different in the image sizes.
+Note that all MakiePublication themes (except `theme_web`) are essentially the same except the physical size of the figure. Hence following figures only different in the image sizes.
 
 - `theme_acs` for American Chemical Society (ACS)
 
@@ -96,5 +96,5 @@ The [full documentation](http://www.yxliu.group/MakiePublication.jl/dev/) is ava
 
 * Star the package on [github.com](https://github.com/liuyxpp/MakiePublication.jl).
 * File an issue or make a pull request on [github.com](https://github.com/liuyxpp/MakiePublication.jl).
-* Pull requests of new schemes for other publishers are highly appreciated.
+* Pull requests of new schemes for other publishers and journals are highly appreciated.
 * Contact the author via email <lyx@fudan.edu.cn>.

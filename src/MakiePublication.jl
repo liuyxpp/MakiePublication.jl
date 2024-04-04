@@ -12,7 +12,7 @@ export
     figsize,
     savefig
 
-include("schemes.jl")
+include("themes.jl")
 export
     theme_acs,
     theme_acs_1col,
@@ -20,6 +20,8 @@ export
     theme_aps,
     theme_aps_1col,
     theme_aps_2col,
+    theme_jcap,
+    theme_jhep,
     theme_rsc,
     theme_rsc_1col,
     theme_rsc_2col,
