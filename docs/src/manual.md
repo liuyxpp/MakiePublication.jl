@@ -2,7 +2,7 @@
 
 ## Makie Themes
 
-MakiePublication provides 3 Makie themes suitable for creating publication quality figures and 1 theme for web presentation.
+MakiePublication provides 5 Makie themes suitable for creating publication quality figures and 1 theme for web presentation.
 
 ```@docs
 theme_acs
@@ -11,6 +11,8 @@ theme_acs_2col
 theme_aps
 theme_aps_1col
 theme_aps_2col
+theme_jcap
+theme_jhep
 theme_rsc
 theme_rsc_1col
 theme_rsc_2col
