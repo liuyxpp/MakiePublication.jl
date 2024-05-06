@@ -120,7 +120,7 @@ function theme_web(;
     palette = isnothing(palette) ? pal : palette
 
     return Theme(#figure_padding=0,
-        resolution=(width, width * heightwidthratio),
+        size=(width, width * heightwidthratio),
         # font="Helvetica",
         palette=palette,
         Axis=axis_theme,

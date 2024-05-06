@@ -162,7 +162,7 @@ function theme_acs(;
         bold_italic=texfont(:bolditalic))
 
     theme_args = (figure_padding=0,
-        resolution=figsize(width, heightwidthratio),
+        size=figsize(width, heightwidthratio),
         colgap=8,
         rowgap=8,
         # font="Helvetica",

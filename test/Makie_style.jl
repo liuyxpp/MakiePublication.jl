@@ -94,7 +94,7 @@ function theme_acs(width=3.25, colors=ColorSchemes.glasbey_hv_n256.colors)
 	pal = (color=colors,)
 	
 	return Theme(figure_padding=2,
-				 resolution=figsize(width),
+				 size=figsize(width),
 				 # font="Helvetica",
 				 palette=pal,
 				 Axis=axis_theme,
@@ -171,7 +171,7 @@ function test_color_cycle(colors)
 	newtheme = Theme(figure_padding=2, Scatter=(cycle=Cycle([:color, :marker], covary=true), markersize=7), palette=(color=colors,))
 	set_theme!(newtheme)
 	
-	fig = Figure(resolution=figsize(3.25), font = "Helvetica")
+	fig = Figure(size=figsize(3.25), font = "Helvetica")
 	ax = Axis(fig, xlabel = L"x", ylabel = L"J_{\nu}(x)",
 			  # xlabel="x coord", ylabel="Bessel function",
 			  xlabelsize=9, ylabelsize=9,
@@ -221,7 +221,7 @@ save("test.pdf", fig, pt_per_unit=1.0)
 
 # ╔═╡ b7f1f7c9-4d61-4b1a-b75a-5115d3f286e2
 function default_color_cycle()
-	fig = Figure(resolution = (600,400), font = "Helvetica")
+	fig = Figure(size = (600,400), font = "Helvetica")
 	ax = Axis(fig, xlabel = L"x", ylabel = L"J_{\nu}(x)", ylabelsize = 22, 
 		xlabelsize= 22, xgridstyle=:dash, ygridstyle=:dash, xtickalign = 1, 
 		xticksize=10, ytickalign=1, yticksize=10,  xlabelpadding = -10)
