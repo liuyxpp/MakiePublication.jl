@@ -18,6 +18,7 @@ doctest(MakiePublication)
         theme_aps_2col,
         theme_jcap,
         theme_jhep,
+        theme_joss,
         theme_rsc,
         theme_rsc_1col,
         theme_rsc_2col,
