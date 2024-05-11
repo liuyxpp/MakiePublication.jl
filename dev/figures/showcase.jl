@@ -1,4 +1,4 @@
-# This script has been used to produce figures presented in README.md as banner.
+# This script has been used to produce figures presented in README.md as showcase.
 
 using CairoMakie
 using MakiePublication
@@ -44,6 +44,15 @@ end
 
 lc = Cycle([:color, :linestyle], covary=true)
 sc = Cycle([:color=>:markercolor, :strokecolor=>:color, :marker], covary=true)
+
 fig = with_theme(myplot, theme_acs(linecycle=lc, scattercycle=sc, linestyles=[nothing, :dash], ishollowmarkers=[false, true]));
 savefig("acs.eps", fig)
 savefig("acs.svg", fig)
+
+fig = with_theme(myplot, theme_aps(linecycle=lc, scattercycle=sc, linestyles=[nothing, :dash], ishollowmarkers=[false, true]));
+savefig("aps.eps", fig)
+savefig("aps.svg", fig)
+
+fig = with_theme(myplot, theme_acs(linecycle=lc, scattercycle=sc, linestyles=[nothing, :dash], ishollowmarkers=[false, true]));
+savefig("rsc.eps", fig)
+savefig("rsc.svg", fig)
