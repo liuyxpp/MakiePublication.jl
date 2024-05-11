@@ -5,10 +5,15 @@ Generate Makie theme for producing figures for APS (American Physical Society). 
 
 See also [`theme_acs`](@ref), [`theme_rsc`](@ref), and [`theme_web`](@ref).
 """
-theme_aps(; kwargs...) = theme_acs(; width=3.375, kwargs...)
+function theme_aps(; kwargs...)
+    theme = theme_acs(; width=3.375, kwargs...)
+    theme.Axis.xticksmirrored = true
+    theme.Axis.yticksmirrored = true
+    return theme
+end
 
 "One-column figure for APS, which is identical to [`theme_aps`](@ref)."
-theme_aps_1col(; kwargs...) = theme_rsc(; width=3.375, kwargs...)
+theme_aps_1col(; kwargs...) = theme_aps(; width=3.375, kwargs...)
 
 "Two-column figure for APS."
-theme_aps_2col(; kwargs...) = theme_rsc(; width=6.75, kwargs...)
+theme_aps_2col(; kwargs...) = theme_aps(; width=6.75, kwargs...)

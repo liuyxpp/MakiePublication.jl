@@ -82,7 +82,8 @@ function theme_acs(;
         spinewidth=1.1,
         xticklabelsize=8,
         yticklabelsize=8,
-        # xgridstyle=:dash, ygridstyle=:dash,
+        # xgridstyle=:dash
+        # ygridstyle=:dash,
         xgridvisible=false,
         ygridvisible=false,
         xtickalign=1,
@@ -91,6 +92,8 @@ function theme_acs(;
         yticksize=5,
         xtickwidth=0.8,
         ytickwidth=0.8,
+        xticksmirrored = false,
+        yticksmirrored = false,
         xminorticksvisible=true,
         yminorticksvisible=true,
         xminortickalign=1,
