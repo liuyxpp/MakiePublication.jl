@@ -1,7 +1,7 @@
 name = "MakiePublication"
 uuid = "dde8697e-0d61-460d-88dd-856f66710dd1"
 authors = ["Yi-Xin Liu <lyx@fudan.edu.cn>"]
-version = "0.4.0"
+version = "0.4.1"
 
 [deps]
 ColorSchemes = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
