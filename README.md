@@ -74,7 +74,7 @@ The demonstration of available color palettes can be found in the Pluto notebook
 
 ## Showcase of Themes
 
-Note that all MakiePublication themes (except `theme_web`) are essentially the same except the physical size of the figure. Hence following figures only different in the image sizes.
+Note the difference of physical size among figures. APS figures have ticks on all four axes (new in v0.4.1).
 
 - `theme_acs` for American Chemical Society (ACS)
 
