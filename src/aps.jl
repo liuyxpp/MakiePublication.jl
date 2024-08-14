@@ -7,8 +7,8 @@ See also [`theme_acs`](@ref), [`theme_rsc`](@ref), and [`theme_web`](@ref).
 """
 function theme_aps(; kwargs...)
     theme = theme_acs(; width=3.375, kwargs...)
-    theme.Axis.xticksmirrored = true
-    theme.Axis.yticksmirrored = true
+    theme.Axis.xticksmirrored = get(kwargs, :xticksmirrored, true)
+    theme.Axis.yticksmirrored = get(kwargs, :yticksmirrored, true)
     return theme
 end
 
