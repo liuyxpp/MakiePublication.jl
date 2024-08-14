@@ -33,7 +33,8 @@ function theme_acs(;
     scattercycle=nothing,
     markerstrokewidth=0,  # change to linewidth to make hollo markers.
     heightwidthratio=HWRATIO,
-    usetexfont=true
+    usetexfont=true,
+    kwargs...
 )
     colors = isnothing(colors) ? COLORS : colors
     n = length(colors)
