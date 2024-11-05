@@ -5,10 +5,10 @@ Generate Makie theme for producing figures for APS (American Physical Society). 
 
 See also [`theme_acs`](@ref), [`theme_rsc`](@ref), and [`theme_web`](@ref).
 """
-function theme_aps(; kwargs...)
+function theme_aps(; xticksmirrored = true, yticksmirrored = true, kwargs...)
     theme = theme_acs(; width=3.375, kwargs...)
-    theme.Axis.xticksmirrored = get(kwargs, :xticksmirrored, true)
-    theme.Axis.yticksmirrored = get(kwargs, :yticksmirrored, true)
+    theme.Axis.xticksmirrored = xticksmirrored
+    theme.Axis.yticksmirrored = yticksmirrored
     return theme
 end
 
