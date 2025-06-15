@@ -7,6 +7,7 @@ makedocs(;
     repo="https://github.com/liuyxpp/MakiePublication.jl/blob/{commit}{path}#L{line}",
     sitename="MakiePublication.jl",
     format=Documenter.HTML(;
+        analytics = "UA-31783224-1",
         prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://www.yxliu.group/MakiePublication",
         assets=String[],
