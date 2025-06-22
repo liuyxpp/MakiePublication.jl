@@ -9,7 +9,7 @@ makedocs(;
     format=Documenter.HTML(;
         analytics = "UA-31783224-1",
         prettyurls=get(ENV, "CI", "false") == "true",
-        canonical="https://www.yxliu.group/MakiePublication",
+        canonical="https://www.yxliu.group/MakiePublication.jl",
         assets=String[],
     ),
     pages=[
